@@ -1,7 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
+    margin: 0;
+    scroll-behavior: smooth;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
+body,
+html {
+    line-height: 150%;
+    background-color: var(--pmWhite);
 }
+
+:root {
+    /* Farver */
+    --orange: #EF3D04;
+    --darkBlue: #09203D;
+    --lightBlue: #DCE4F1;
+    --pmWhite: #ffffff;
+    --pmBlack: #000000;
+
+    /* padding / margin / gap */
+    --smallGap: 2rem;
+    --largeGap: 5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--darkBlue);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+
+/* NAV - MOBIL */
+
+/* NAV - DESKTOP */
+
+
+/* FOOTER MOBILE */
+
+/* FOOTER DESKTOP */
+
+
+/* FREJA start her */
+
+/* FREYA start her */
+
+/* NICKLAS start her */
+
+/* ANTON start her */
