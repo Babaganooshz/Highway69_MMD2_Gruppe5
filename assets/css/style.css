@@ -131,6 +131,14 @@ h6 {
         }
     }
 
+    .nav-list-desktopn a {
+        transition: 0.3s
+    }
+
+    .nav-list-desktop a:hover {
+        color: var(--darkBlue);
+    }
+
     #logoHighway-desktop {
         height: 60px;
         padding-left: 1.5rem;
