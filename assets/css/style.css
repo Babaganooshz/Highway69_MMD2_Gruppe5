@@ -86,55 +86,43 @@ h6 {
 }
 
 .navDropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 0;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    height: 100%;
     overflow: hidden;
-    opacity: 0;
-    transition: height 0.4s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
 }
 
 .navDropdown.show {
-    visibility: visible;
-    transform: translateY(0);
-    height: 100vh;
-    opacity: 1;
+    transform: translateX(0);
+    box-shadow: 8px 8px 35px 35px rgba(0, 0, 0, 0.25);
 }
 
+
 /* NAV - DESKTOP */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 2000;
+    }
+
     .nav-mobile {
         display: none;
     }
 
     .nav-desktop {
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: center;
-        position: relative;
+        padding: 0 40px;
+        height: 70px;
         background-color: var(--orange);
-        height: 80px;
         box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
-    }
-
-    .nav-list-desktop {
-        list-style: none;
-        display: flex;
-        gap: 50px;
-        align-items: center;
-        padding: var(--smallGap);
-
-        a {
-            text-decoration: none;
-            color: var(--pmWhite);
-            font-family: "Bebas Neue", sans-serif;
-        }
-    }
-
-    .nav-list-desktopn a {
-        transition: 0.3s
     }
 
     .nav-list-desktop a:hover {
@@ -142,11 +130,25 @@ h6 {
     }
 
     #logoHighway-desktop {
-        height: 60px;
-        padding-left: 1.5rem;
+        height: 45px;
+    }
 
+    .nav-list-desktop {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+
+        a {
+            text-decoration: none;
+            color: var(--pmWhite);
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 15px;
+        }
     }
 }
+
 
 /* FOOTER MOBILE */
 .footer {
@@ -157,6 +159,7 @@ h6 {
     max-width: 1200px;
     color: var(--pmWhite);
     font-family: "Roboto", sans-serif;
+    padding: var(--smallGap);
 }
 
 .footer-section {
@@ -174,6 +177,12 @@ h6 {
     }
 }
 
+.map-iframe {
+    width: 100%;
+    height: 300px;
+    display: block;
+}
+
 #facebookIcon,
 #tripadvisorIcon {
     height: 30px;
@@ -181,9 +190,8 @@ h6 {
 
 }
 
-.footer-section iframe {
-    width: 100%;
-    height: auto;
+.footer-icons {
+    margin-top: 1rem;
 }
 
 .footer-section h3 {
@@ -195,10 +203,48 @@ h6 {
     margin: 0.5rem 0 0.5rem 0;
 }
 
+.footer-section iframe {
+    margin: 0.5rem 0 0.5rem 0;
+}
+
 /* FOOTER DESKTOP */
-.footer-container {
-    display: flex;
-    flex-direction: row;
+@media (min-width: 769px) {
+    .footer-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        padding-top: var(--largeGap);
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    .map-iframe {
+        width: 100%;
+        height: 300px;
+        display: block;
+    }
+
+    .map-icons-wrapper {
+        display: flex;
+        gap: var(--largeGap);
+        align-items: flex-start;
+    }
+
+    .footer-section a:hover {
+        color: var(--orange);
+    }
 }
 
 /* FREJA start her */

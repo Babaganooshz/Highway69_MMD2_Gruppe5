@@ -25,17 +25,15 @@ function closeMenu() {
 
 let burger = document.querySelector(".burgerMenuIcon");
 
-burger.addEventListener("click", function (event) {
-    event.stopPropagation();
+
+burger.addEventListener("click", function () {
     toggleMenu();
 });
 
-
 document.addEventListener("click", function (event) {
-    let getMenu = document.querySelector('#navDropdown');
-    let burger = document.querySelector(".burgerMenuIcon");
+    let navMobile = document.querySelector('.nav-mobile');
 
-    if (!getMenu.contains(event.target) && !burger.contains(event.target)) {
+    if (!navMobile.contains(event.target)) {
         closeMenu();
     }
 });
