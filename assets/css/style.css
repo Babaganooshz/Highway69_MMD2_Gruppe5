@@ -22,7 +22,7 @@ html {
 
     /* padding / margin / gap */
     --smallGap: 2rem;
-    --largeGap: 5rem;
+    --largeGap: 4rem;
 }
 
 h1,
@@ -43,7 +43,7 @@ h6 {
 
 .nav-mobile {
     background-color: var(--orange);
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100vw;
     z-index: 1000;
@@ -52,6 +52,7 @@ h6 {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
 }
 
 #logoHighway-mobile {
@@ -103,7 +104,7 @@ h6 {
 }
 
 /* NAV - DESKTOP */
-@media (min-width: 789px) {
+@media (min-width: 769px) {
     .nav-mobile {
         display: none;
     }
@@ -115,6 +116,7 @@ h6 {
         position: relative;
         background-color: var(--orange);
         height: 80px;
+        box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
     }
 
     .nav-list-desktop {
@@ -147,9 +149,57 @@ h6 {
 }
 
 /* FOOTER MOBILE */
+.footer {
+    background-color: var(--darkBlue);
+}
+
+.footer-container {
+    max-width: 1200px;
+    color: var(--pmWhite);
+    font-family: "Roboto", sans-serif;
+}
+
+.footer-section {
+    padding: var(--smallGap);
+
+    a {
+        text-decoration: none;
+        color: var(--pmWhite);
+
+    }
+
+    i {
+        color: var(--orange);
+        padding-right: var(--smallGap);
+    }
+}
+
+#facebookIcon,
+#tripadvisorIcon {
+    height: 30px;
+    width: 30px;
+
+}
+
+.footer-section iframe {
+    width: 100%;
+    height: auto;
+}
+
+.footer-section h3 {
+    color: var(--orange);
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin: 0.5rem 0 0.5rem 0;
+}
 
 /* FOOTER DESKTOP */
-
+.footer-container {
+    display: flex;
+    flex-direction: row;
+}
 
 /* FREJA start her */
 
