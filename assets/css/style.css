@@ -12,21 +12,6 @@ html {
     background-color: var(--pmWhite);
 }
 
-/* Begrænser indholdsbredden og centrerer main på siden */
-main {
-    width: 100%;
-    padding-inline: var(--smallGap);
-}
-
-/* Håndterer layout på større skærmstørrelser */
-@media (min-width: 769px) {
-    main {
-        max-width: 1200px;
-        margin-inline: auto;
-        padding-inline: var(--largeGap);
-    }
-}
-
 :root {
     /* Farver */
     --orange: #EF3D04;
@@ -120,7 +105,6 @@ h6 {
 
 .nav-list {
     list-style: none;
-    background: var(--darkBlue);
     padding: 0;
     margin: 0;
 }
@@ -136,14 +120,20 @@ h6 {
 
 .navDropdown {
     position: fixed;
+    background-color: var(--darkBlue);
     top: 60px;
     right: 0;
     width: 60%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     transform: translateX(100%);
     transition: transform 0.4s ease;
+}
 
+@media (min-width:659px) {
+    .navDropdown {
+        width: 50%;
+    }
 }
 
 .navDropdown.show {
@@ -228,14 +218,13 @@ h6 {
 
 .map-iframe {
     width: 100%;
-    height: 300px;
     display: block;
 }
 
 #facebookIcon,
 #tripadvisorIcon {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 
 }
 
@@ -257,7 +246,7 @@ h6 {
 }
 
 /* FOOTER DESKTOP */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .footer-container {
         display: flex;
         width: 100%;
@@ -265,10 +254,11 @@ h6 {
         justify-content: center;
         align-items: flex-start;
         margin: 0 auto;
+        gap: var(--largeGap);
+        flex-wrap: wrap;
     }
 
     .footer-section {
-        padding-top: var(--largeGap);
         padding-right: var(--smallGap);
     }
 
@@ -297,6 +287,12 @@ h6 {
     }
 }
 
+@media (min-width:900px) {
+    .footer-container {
+        flex-wrap: nowrap;
+    }
+}
+
 /* FREJA start her */
 /* FORSIDE */
 /* Hero karrusel */
@@ -306,13 +302,14 @@ h6 {
     width: 100%;
     margin-top: 60px;
     position: relative;
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: slider 30s ease-in infinite;
+    animation: slider 15s ease-in infinite;
     display: flex;
     align-items: center;
     justify-content: center;
+    object-fit: cover;
 }
 
 .hero h1 {
@@ -361,37 +358,26 @@ h6 {
             url('../img/baren.webp');
     }
 
-    15% {
+    20% {
         background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), ('../img/american_steak_grill.webp');
+
     }
 
-    30% {
+    40% {
         background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
     }
 
-    45% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/skilt.webp');
-    }
-
     60% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/selskabslokale_pt.4.webp');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
     }
 
-    75% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/restaurant69.webp');
-    }
-
-    90% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/lokale_ved_sidenaf.webp');
+    80% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
     }
 
     100% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak.webp');
     }
-}
-
-.btn-desktop {
-    display: none;
 }
 
 /* Uddybende intro tekst på forsiden */
@@ -417,11 +403,13 @@ h6 {
 /* Intro sektionen på forsiden */
 .intro-forside h2 {
     margin-top: var(--smallGap);
+    line-height: 150%;
+    padding-left: var(--smallGap);
 }
 
 .intro-forside p {
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap) 0 var(--smallGap) 0;
+    padding: var(--smallGap) 0 var(--smallGap) var(--smallGap);
     line-height: 150%;
     font-size: small;
 }
@@ -430,19 +418,29 @@ h6 {
     color: var(--orange);
 }
 
-.intro-forside img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+/* Focused entry point sektionen */
+
+.entry-point-forside {
+    padding: var(--smallGap);
+    padding-top: 0;
 }
 
-/* Focused entry point sektionen */
+.entry-points-forside {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .entry-point-forside h2 {
-    padding: var(--smallGap) 0 var(--smallGap) 0;
+    padding: 0 0 var(--smallGap) 0;
+}
+
+#menukort-heading {
+    padding-top: var(--smallGap);
 }
 
 .entry-point-forside h2:last-child {
-    padding-top: var(--largeGap);
+    padding-top: var(--smallGap);
 }
 
 .entry-point-forside p {
@@ -450,21 +448,25 @@ h6 {
     font-size: small;
 }
 
-#menukort-heading {
-    padding-top: 5rem;
-}
-
-#spareribs-img img {
+.entry-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    padding-top: var(--smallGap);
+
 }
 
-/* Hvorfor vælge highway sektionen */
-.choosing-section h2 {
-    padding: var(--smallGap) 0 var(--smallGap) 0;
+#stekas-entry-img {
+    padding: 0 var(--smallGap) var(--smallGap) var(--smallGap);
+    order: -1;
+
 }
+
+
+/* Hvorfor vælge highway sektionen */
+.choosing-section {
+    padding: var(--smallGap);
+}
+
 
 .pick-list {
     list-style: none;
@@ -487,7 +489,8 @@ h6 {
 }
 
 .images-bottom-front-page {
-    padding-top: var(--smallGap);
+    padding: 0 var(--smallGap);
+    gap: 20px;
 }
 
 .images-bottom-front-page img {
@@ -498,7 +501,7 @@ h6 {
 
 /* Anmeldelse slider */
 .reviews-section h2 {
-    padding: var(--smallGap) 0;
+    padding: var(--smallGap);
 }
 
 
@@ -527,8 +530,10 @@ h6 {
     color: var(--pmWhite);
     border-radius: 0;
     padding: 2rem;
-    min-width: 100%;
+    max-width: 300px;
+    margin-inline: auto;
     box-sizing: border-box;
+    padding-bottom: 0;
     height: 350px;
 }
 
@@ -562,6 +567,7 @@ h6 {
     margin-top: 2rem;
     font-family: "Roboto", sans-serif;
     font-size: small;
+    padding-bottom: var(--smallGap);
 }
 
 .slider-btn {
@@ -573,11 +579,208 @@ h6 {
     padding: 0 0.5rem;
 }
 
-/* Desktop - vis alle tre kort */
-@media (min-width: 769px) {
-    .review-card {
-        min-width: calc(100% / 3);
+/* Forside - desktop */
+@media (min-width: 768px) {
+
+    /* Hero sektionen */
+    .hero {
+        height: 450px;
+        margin-top: 60px;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
     }
+
+    /* Intro sektion */
+    .intro-forside p {
+        column-count: 2;
+        /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
+        column-gap: var(--largeGap);
+        padding: var(--smallGap) var(--largeGap) var(--smallGap) var(--largeGap);
+    }
+
+    .intro-forside h2 {
+        padding-left: var(--largeGap);
+        padding-top: var(--smallGap);
+    }
+
+    /* Focused entry sektioner */
+    .entry-points-forside {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--smallGap);
+        align-items: stretch;
+        padding: var(--smallGap) var(--largeGap);
+        grid-template-rows: repeat(2, 300px);
+    }
+
+    .entry-point-forside a {
+        margin-top: auto;
+    }
+
+    .entry-point-forside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 0;
+    }
+
+    .entry-img {
+        height: 300px;
+    }
+
+    #stekas-entry-img {
+        width: 100%;
+        height: 100%;
+        min-height: 250px;
+        object-fit: cover;
+        padding: 0;
+    }
+
+    #menukort-heading {
+        padding: 0;
+        padding-bottom: var(--smallGap);
+    }
+
+    /* Hvorfor vælge highway - sektion */
+    .choosing-section {
+        padding: var(--largeGap) var(--largeGap) var(--smallGap) var(--largeGap);
+    }
+
+    .images-bottom-front-page {
+        display: flex;
+        gap: 0;
+        height: 250px;
+        padding: 0;
+    }
+
+    .images-bottom-front-page img {
+        height: 100%;
+    }
+
+    /* Anmeldelser sektion */
+    .reviews-section h2 {
+        padding-top: 3rem;
+        padding-left: 0;
+    }
+
+    .reviews-section {
+        padding: 0 var(--largeGap);
+        padding-bottom: var(--largeGap);
+    }
+
+    #moreText {
+        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    #readMoreBtn {
+        display: none;
+    }
+}
+
+@media (min-width: 900px) {
+    .forside-main {
+        max-width: 1200px;
+    }
+
+    .entry-points-forside {
+        display: grid;
+        gap: var(--largeGap);
+    }
+
+    .hero {
+        margin-top: 60px;
+        margin: 0;
+        height: 500px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #moreText {
+        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    .intro-forside {
+        text-align: center;
+        margin: 0 var(--smallGap);
+    }
+
+    .intro-forside p {
+        text-align: start;
+        padding-bottom: var(--largeGap);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* skift fx til 2fr 1fr for ulige kolonner */
+        column-gap: var(--largeGap);
+        column-rule: 2px solid var(--darkBlue);
+    }
+
+    #readMoreBtn {
+        display: none;
+    }
+
+    /* Hvorfor vælge highway */
+    .pick-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--largeGap);
+        padding-top: var(--smallGap);
+    }
+
+    /* Billeder i bunden af forsiden */
+    .images-bottom-front-page img {
+        height: 100%;
+    }
+
+    .images-bottom-front-page {
+        width: 100%;
+        height: 300px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Anmeldelser sektionen */
+    .reviews-section {
+        padding-left: var(--largeGap);
+    }
+
+    .reviews-section h2 {
+        padding-top: var(--largeGap);
+    }
+
+    .slider-btn {
+        display: none;
+    }
+
+    .reviews-slider {
+        display: block;
+    }
+
+    .reviews-track {
+        overflow: visible;
+        width: 100%;
+        display: flex;
+        gap: var(--smallGap);
+    }
+
+    .review-card {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .reviewer {
+        margin-top: 0;
+        padding-top: var(--smallGap);
+    }
+
 }
 
 /* FREYA start her */
@@ -585,84 +788,83 @@ h6 {
 /* NICKLAS start her */
 /* Menukort Hero Start*/
 .hero-menukort {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  max-width: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 220px;
+    max-width: 100%;
+    overflow: hidden;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-img-menukort {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
-  max-width: none;
+    width: 100%;
+    height: 100%;
+    max-width: none;
 
-  object-fit: cover;
-  object-position: center bottom;
+    object-fit: cover;
+    object-position: center bottom;
 
-  display: block;
-  z-index: 0;
+    display: block;
+    z-index: 0;
 }
 
 .hero-overlay-menukort {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.40) 99.99%,
-    rgba(102, 102, 102, 0.40) 100%
-  );
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.40) 99.99%,
+            rgba(102, 102, 102, 0.40) 100%);
 
-  z-index: 1;
+    z-index: 1;
 }
 
 .hero-content-menukort {
-  position: relative;
-  z-index: 2;
-  text-align: center;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
 .hero-content-menukort h1 {
-  color: white;
-  font-size: 36px;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin: 0;
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
 }
+
 /* Menukort Hero Slut */
 
 /* Responsivt design */
 @media (min-width: 768px) {
-  .hero-menukort {
-    height: 350px;
-  }
+    .hero-menukort {
+        height: 350px;
+    }
 
-  .hero-content-menukort h1 {
-    font-size: 56px;
-  }
+    .hero-content-menukort h1 {
+        font-size: 56px;
+    }
 }
 
 @media (min-width: 1200px) {
-  .hero-menukort {
-    height: 450px;
-  }
+    .hero-menukort {
+        height: 450px;
+    }
 
-  .hero-content-menukort h1 {
-    font-size: 72px;
-  }
+    .hero-content-menukort h1 {
+        font-size: 72px;
+    }
 }
 
 /* ANTON start her */
