@@ -42,3 +42,11 @@ document.addEventListener("click", function (event) {
         closeMenu();
     }
 });
+
+/* FREJA start her */
+
+/* FREYA Start her */
+
+/* NICKLAS start her */
+
+/* ANTON start her */
