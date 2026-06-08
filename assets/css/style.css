@@ -16,7 +16,6 @@ html {
 main {
     width: 100%;
     padding-inline: var(--smallGap);
-    margin-top: 60px;
 }
 
 /* Håndterer layout på større skærmstørrelser */
@@ -122,15 +121,15 @@ h6 {
     background: var(--darkBlue);
     padding: 0;
     margin: 0;
+}
 
-    a {
-        text-decoration: none;
-        color: var(--pmWhite);
-        justify-content: center;
-        display: flex;
-        padding: 1.5rem 3rem;
-        font-family: "Bebas Neue", sans-serif;
-    }
+.nav-list a {
+    text-decoration: none;
+    color: var(--pmWhite);
+    justify-content: center;
+    display: flex;
+    padding: 1.5rem 3rem;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .navDropdown {
@@ -187,13 +186,14 @@ h6 {
         gap: 2rem;
         margin: 0;
         padding: 0;
+    }
 
-        a {
-            text-decoration: none;
-            color: var(--pmWhite);
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 15px;
-        }
+    .nav-list-desktop a {
+        text-decoration: none;
+        color: var(--pmWhite);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 15px;
+
     }
 }
 
@@ -207,22 +207,21 @@ h6 {
     max-width: 1200px;
     color: var(--pmWhite);
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap);
+    padding: var(--largeGap) var(--smallGap) var(--smallGap) var(--smallGap);
 }
 
 .footer-section {
-    padding: var(--smallGap);
+    padding-bottom: var(--smallGap);
+}
 
-    a {
-        text-decoration: none;
-        color: var(--pmWhite);
+.footer-section a {
+    text-decoration: none;
+    color: var(--pmWhite);
+}
 
-    }
-
-    i {
-        color: var(--orange);
-        padding-right: var(--smallGap);
-    }
+.footer-section i {
+    color: var(--orange);
+    padding-right: var(--smallGap);
 }
 
 .map-iframe {
@@ -268,14 +267,14 @@ h6 {
 
     .footer-section {
         padding-top: var(--largeGap);
+    }
 
-        h3 {
-            font-size: 20px;
-        }
+    .footer-section h3 {
+        font-size: 20px;
+    }
 
-        p {
-            font-size: 15px;
-        }
+    .footer-section p {
+        font-size: 15px;
     }
 
     .map-iframe {
@@ -297,10 +296,15 @@ h6 {
 
 /* FREJA start her */
 /* FORSIDE */
+
+.btn-desktop {
+    display: none;
+}
+
 .hero-section-forside {
     width: 100%;
     display: block;
-    height: 250px;
+    height: 200px;
     margin-top: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
     background-size: cover;
@@ -322,21 +326,25 @@ h6 {
 .read-more-btn {
     background: none;
     border: none;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: "Roboto", sans-serif;
     cursor: pointer;
     padding: 0;
+}
 
-    .intro-forside p {
-        font-family: "Roboto", sans-serif;
-        padding: var(--smallGap) 0 var(--smallGap) 0;
-        line-height: 150%;
-        font-size: small;
-    }
+/* Intro sektionen på forsiden */
+.intro-forside h2 {
+    margin-top: var(--smallGap);
+}
+
+.intro-forside p {
+    font-family: "Roboto", sans-serif;
+    padding: var(--smallGap) 0 var(--smallGap) 0;
+    line-height: 150%;
+    font-size: small;
 }
 
 .read-more-btn:hover {
     color: var(--orange);
-
 }
 
 .intro-forside img {
@@ -344,7 +352,6 @@ h6 {
     height: 170px;
     object-fit: cover;
 }
-
 
 /* FREYA start her */
 
