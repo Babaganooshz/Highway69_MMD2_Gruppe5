@@ -269,6 +269,7 @@ h6 {
 
     .footer-section {
         padding-top: var(--largeGap);
+        padding-right: var(--smallGap);
     }
 
     .footer-section h3 {
@@ -450,7 +451,7 @@ h6 {
 }
 
 #menukort-heading {
-    padding-top: var(--largeGap);
+    padding-top: 5rem;
 }
 
 #spareribs-img img {
@@ -458,6 +459,125 @@ h6 {
     height: 200px;
     object-fit: cover;
     padding-top: var(--smallGap);
+}
+
+/* Hvorfor vælge highway sektionen */
+.choosing-section h2 {
+    padding: var(--smallGap) 0 var(--smallGap) 0;
+}
+
+.pick-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.point img {
+    height: auto;
+    width: 1.5rem;
+    min-width: 2rem;
+}
+
+.point {
+    padding: 0.75rem 0;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.images-bottom-front-page {
+    padding-top: var(--smallGap);
+}
+
+.images-bottom-front-page img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+}
+
+/* Anmeldelse slider */
+.reviews-section h2 {
+    padding: var(--smallGap) 0;
+}
+
+
+.reviews-section {
+    padding-bottom: var(--largeGap);
+}
+
+.reviews-slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviews-track {
+    overflow: hidden;
+    width: 100%;
+}
+
+.reviews-track-inner {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.review-card {
+    background-color: var(--darkBlue);
+    color: var(--pmWhite);
+    border-radius: 0;
+    padding: 2rem;
+    min-width: 100%;
+    box-sizing: border-box;
+    height: 350px;
+}
+
+.review-card .stars {
+    color: var(--pmWhite);
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.review-date {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    margin: 0.5rem 0;
+}
+
+.review-card h3 {
+    color: var(--pmWhite);
+    margin: 1rem 0 0.5rem 0;
+}
+
+.review-card p {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    line-height: 150%;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+.slider-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--darkBlue);
+    padding: 0 0.5rem;
+}
+
+/* Desktop - vis alle tre kort */
+@media (min-width: 769px) {
+    .review-card {
+        min-width: calc(100% / 3);
+    }
 }
 
 /* FREYA start her */
