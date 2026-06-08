@@ -26,13 +26,13 @@ heroObserver.observe(hero);
 
 // Finder og viser/skjuler den ekstra tekst, når brugeren klikker
 function toggleText() {
+    if (window.innerWidth >= 769) return;
+
     const moreText = document.getElementById("moreText");
     const btn = document.getElementById("readMoreBtn");
 
-    // Tilføjer eller fjerner klassen "visible" på tekst-elementet
     moreText.classList.toggle("visible");
 
-    // Opdaterer knapteksten afhængigt af om teksten er synlig
     if (moreText.classList.contains("visible")) {
         btn.textContent = "[Luk]";
     } else {
