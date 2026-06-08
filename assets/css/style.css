@@ -409,7 +409,7 @@ h6 {
 
 .intro-forside p {
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap) 0 var(--smallGap) var(--smallGap);
+    padding: var(--smallGap);
     line-height: 150%;
     font-size: small;
 }
@@ -610,7 +610,7 @@ h6 {
         grid-template-columns: 1fr 1fr;
         gap: var(--smallGap);
         align-items: stretch;
-        padding: var(--smallGap) var(--largeGap);
+        padding: 0 var(--largeGap) var(--smallGap);
         grid-template-rows: repeat(2, 300px);
     }
 
