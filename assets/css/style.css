@@ -12,6 +12,21 @@ html {
     background-color: var(--pmWhite);
 }
 
+/* Begrænser indholdsbredden og centrerer main på siden */
+main {
+    width: 100%;
+    padding-inline: var(--smallGap);
+}
+
+/* Håndterer layout på større skærmstørrelser */
+@media (min-width: 769px) {
+    main {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: var(--largeGap);
+    }
+}
+
 :root {
     /* Farver */
     --orange: #EF3D04;
@@ -22,7 +37,7 @@ html {
 
     /* padding / margin / gap */
     --smallGap: 2rem;
-    --largeGap: 5rem;
+    --largeGap: 4rem;
 }
 
 h1,
@@ -35,18 +50,308 @@ h6 {
     font-family: "Bebas Neue", sans-serif;
 }
 
+/* KNAP */
+.btn {
+    background-color: var(--orange);
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background-color: var(--darkBlue);
+    opacity: 0.85;
+}
+
+.btn-mobile {
+    padding: 14px 24px;
+    width: 50%;
+}
+
+.btn-desktop {
+    padding: 13px 28px;
+    min-width: 140px;
+}
+
 
 /* NAV - MOBIL */
+/* Skjuler dekstop navbaren på mobil versionen */
+.nav-desktop {
+    display: none;
+}
+
+.nav-mobile {
+    background-color: var(--orange);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
+}
+
+#logoHighway-mobile {
+    height: 40px;
+}
+
+.burgerMenuIcon {
+    display: flex;
+    cursor: pointer;
+    color: var(--pmWhite);
+    font-size: 1.5rem;
+    height: 100%;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    background: var(--darkBlue);
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--pmWhite);
+    justify-content: center;
+    display: flex;
+    padding: 1.5rem 3rem;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.navDropdown {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+}
+
+.navDropdown.show {
+    transform: translateX(0);
+    box-shadow: 8px 8px 35px 35px rgba(0, 0, 0, 0.25);
+}
+
 
 /* NAV - DESKTOP */
+@media (min-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 2000;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 70px;
+        background-color: var(--orange);
+        box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-list-desktop a:hover {
+        color: var(--darkBlue);
+    }
+
+    #logoHighway-desktop {
+        height: 45px;
+    }
+
+    .nav-list-desktop {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-list-desktop a {
+        text-decoration: none;
+        color: var(--pmWhite);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 15px;
+
+    }
+}
 
 
 /* FOOTER MOBILE */
+.footer {
+    background-color: var(--darkBlue);
+}
+
+.footer-container {
+    max-width: 1200px;
+    color: var(--pmWhite);
+    font-family: "Roboto", sans-serif;
+    padding: var(--largeGap) var(--smallGap) var(--smallGap) var(--smallGap);
+}
+
+.footer-section {
+    padding-bottom: var(--smallGap);
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: var(--pmWhite);
+}
+
+.footer-section i {
+    color: var(--orange);
+    padding-right: var(--smallGap);
+}
+
+.map-iframe {
+    width: 100%;
+    height: 300px;
+    display: block;
+}
+
+#facebookIcon,
+#tripadvisorIcon {
+    height: 30px;
+    width: 30px;
+
+}
+
+.footer-icons {
+    margin-top: 1rem;
+}
+
+.footer-section h3 {
+    color: var(--orange);
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.footer-section iframe {
+    margin: 0.5rem 0 0.5rem 0;
+}
 
 /* FOOTER DESKTOP */
+@media (min-width: 769px) {
+    .footer-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 auto;
+    }
 
+    .footer-section {
+        padding-top: var(--largeGap);
+    }
+
+    .footer-section h3 {
+        font-size: 20px;
+    }
+
+    .footer-section p {
+        font-size: 15px;
+    }
+
+    .map-iframe {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .map-icons-wrapper {
+        display: flex;
+        gap: var(--largeGap);
+        align-items: flex-start;
+    }
+
+    .footer-section a:hover {
+        color: var(--orange);
+    }
+}
 
 /* FREJA start her */
+/* FORSIDE */
+
+.btn-desktop {
+    display: none;
+}
+
+.hero-section-forside {
+    width: 100%;
+    display: block;
+    height: 200px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Uddybende intro tekst på forsiden */
+.more-text {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.more-text.visible {
+    display: inline;
+    opacity: 1;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Intro sektionen på forsiden */
+.intro-forside h2 {
+    margin-top: var(--smallGap);
+}
+
+.intro-forside p {
+    font-family: "Roboto", sans-serif;
+    padding: var(--smallGap) 0 var(--smallGap) 0;
+    line-height: 150%;
+    font-size: small;
+}
+
+.read-more-btn:hover {
+    color: var(--orange);
+}
+
+.intro-forside img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
 
 /* FREYA start her */
 
