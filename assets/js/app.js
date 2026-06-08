@@ -45,6 +45,31 @@ document.addEventListener("click", function (event) {
 
 /* FREJA start her */
 /* Forside */
+// Tilføjer en eventlistener, der lytter efter et scroll
+// Hero-pilen fader ud når man scroller væk fra hero sektionen
+
+// Finder hero sektionen og pil-elementet i DOM'en
+const hero = document.querySelector(".hero");
+const heroArrow = document.getElementById("hero-arrow");
+
+// Opretter en IntersectionObserver der overvåger hero sektionen
+// Threshold 0.5 betyder at observeren reagerer når 50% af hero er synlig
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        // Hvis hero sektionen er synlig, vises pilen
+        if (entry.isIntersecting) {
+            heroArrow.style.opacity = "1";
+        } else {
+            // Hvis hero sektionen ikke er synlig, skjules pilen
+            heroArrow.style.opacity = "0";
+        }
+    });
+}, { threshold: 0.5 });
+
+// Starter observationen af hero sektionen
+heroObserver.observe(hero);
+
+
 // Finder og viser/skjuler den ekstra tekst, når brugeren klikker
 function toggleText() {
     const moreText = document.getElementById("moreText");
