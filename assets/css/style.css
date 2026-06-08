@@ -72,13 +72,15 @@ h6 {
 }
 
 .btn-mobile {
-    padding: 14px 24px;
+    padding: 8px 14px;
     width: 50%;
+    margin-top: var(--smallGap);
 }
 
 .btn-desktop {
     padding: 13px 28px;
     min-width: 140px;
+    margin-top: var(--smallGap);
 }
 
 
@@ -296,19 +298,99 @@ h6 {
 
 /* FREJA start her */
 /* FORSIDE */
+/* Hero karrusel */
+.hero {
+    margin: 0px;
+    height: 250px;
+    width: 100%;
+    margin-top: 60px;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slider 30s ease-in infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    color: var(--pmWhite);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#forside-intro {
+    scroll-margin-top: 90px;
+}
+
+#hero-arrow {
+    color: var(--pmWhite);
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation-name: jump;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: opacity 1000ms;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slider {
+    0% {
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url('../img/baren.webp');
+    }
+
+    15% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), ('../img/american_steak_grill.webp');
+    }
+
+    30% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
+    }
+
+    45% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/skilt.webp');
+    }
+
+    60% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/selskabslokale_pt.4.webp');
+    }
+
+    75% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/restaurant69.webp');
+    }
+
+    90% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/lokale_ved_sidenaf.webp');
+    }
+
+    100% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
+    }
+}
 
 .btn-desktop {
     display: none;
-}
-
-.hero-section-forside {
-    width: 100%;
-    display: block;
-    height: 200px;
-    margin-top: 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
-    background-size: cover;
-    background-position: center;
 }
 
 /* Uddybende intro tekst på forsiden */
@@ -349,8 +431,33 @@ h6 {
 
 .intro-forside img {
     width: 100%;
-    height: 170px;
+    height: 200px;
     object-fit: cover;
+}
+
+/* Focused entry point sektionen */
+.entry-point-forside h2 {
+    padding: var(--smallGap) 0 var(--smallGap) 0;
+}
+
+.entry-point-forside h2:last-child {
+    padding-top: var(--largeGap);
+}
+
+.entry-point-forside p {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+#menukort-heading {
+    padding-top: var(--largeGap);
+}
+
+#spareribs-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding-top: var(--smallGap);
 }
 
 /* FREYA start her */
