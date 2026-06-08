@@ -12,15 +12,19 @@ html {
     background-color: var(--pmWhite);
 }
 
+/* Begrænser indholdsbredden og centrerer main på siden */
 main {
     width: 100%;
+    padding-inline: var(--smallGap);
 }
 
-/* Begrænser bredden til håndtering af større skærmstørrelse */
+/* Håndterer layout på større skærmstørrelser */
 @media (min-width: 769px) {
     main {
         max-width: 1200px;
         margin-inline: auto;
+        /* Sørger for  */
+        padding-inline: var(--largeGap);
     }
 }
 
