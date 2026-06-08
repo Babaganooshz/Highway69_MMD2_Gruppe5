@@ -463,5 +463,86 @@ h6 {
 /* FREYA start her */
 
 /* NICKLAS start her */
+/* Menukort Hero Start*/
+.hero-menukort {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  max-width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center bottom;
+
+  display: block;
+  z-index: 0;
+}
+
+.hero-overlay-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.40) 99.99%,
+    rgba(102, 102, 102, 0.40) 100%
+  );
+
+  z-index: 1;
+}
+
+.hero-content-menukort {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content-menukort h1 {
+  color: white;
+  font-size: 36px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+/* Menukort Hero Slut */
+
+/* Responsivt design */
+@media (min-width: 768px) {
+  .hero-menukort {
+    height: 350px;
+  }
+
+  .hero-content-menukort h1 {
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-menukort {
+    height: 450px;
+  }
+
+  .hero-content-menukort h1 {
+    font-size: 72px;
+  }
+}
 
 /* ANTON start her */
