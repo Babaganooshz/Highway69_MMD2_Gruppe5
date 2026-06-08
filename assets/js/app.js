@@ -89,7 +89,43 @@ function toggleText() {
 // Lytter efter klik på "læs mere" knappen
 document.getElementById("readMoreBtn").addEventListener("click", toggleText);
 
+// Anmeldelse sektion - forside
+// Finder alle anmeldelseskort og sætter tælleren til det første kort
+const cards = document.querySelectorAll(".review-card");
+let current = 0;
 
+// Skjuler alle kort undtagen det første ved at løbe alle kort igennem
+cards.forEach((card, index) => {
+    if (index !== 0) {
+        card.style.display = "none";
+    }
+});
+
+// Næste kort
+// Lytter efter klik på "næste" knappe
+document.getElementById("nextBtn").addEventListener("click", () => {
+    // Skjuler det nuværende kort
+    cards[current].style.display = "none";
+    // Går et kort frem
+    current = current + 1;
+    // Hvis vi er nået til det sidste kort, starter vi forfra
+    if (current >= cards.length) {
+        current = 0;
+    }
+    //Viser det nye kort
+    cards[current].style.display = "block";
+});
+
+// Forrige kort
+document.getElementById("prevBtn").addEventListener("click", () => {
+    cards[current].style.display = "none";
+    // Går et kort tilbage
+    current = current - 1;
+    if (current < 0) {
+        current = cards.length - 1;
+    }
+    cards[current].style.display = "block";
+});
 
 /* FREYA Start her */
 
