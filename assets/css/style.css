@@ -358,13 +358,23 @@ h6 {
 /* Hero sektion */
 .hero-section-selskaber {
     width: 100%;
-    display: block;
+
     height: 200px;
     margin-top: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/selskab.webp);
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+
+.hero-section-selskaber h1 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
 }
 
 /* Blå boks */
@@ -586,13 +596,7 @@ h6 {
         justify-content: center;
     }
 
-    .hero-section-selskaber::after {
-        content: "SELSKABER";
-        color: var(--pmWhite);
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 3.5rem;
-        letter-spacing: 6px;
-    }
+
 
     /* INTRO BLÅ BOKS */
     .intro-selskaber {
@@ -698,6 +702,18 @@ h6 {
 
 }
 
+/* Kontakt side */
+/* Hero sektion */
+.hero-section-kontakt {
+    width: 100%;
+    display: block;
+    height: 200px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/selskab.webp);
+    background-size: cover;
+    background-position: center;
+
+}
 
 /* NICKLAS start her */
 
