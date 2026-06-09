@@ -1194,7 +1194,7 @@ h6 {
     .about-images {
         flex-direction: row;
         gap: 0;
-        padding-top: var(--smallGap);
+        padding: var(--largeGap) 0 var(--smallGap) 0;
     }
 
 }
@@ -1260,7 +1260,16 @@ h6 {
 
     /* FAQ på desktop */
     .faq-wrapper {
-        margin: 0 var(--largeGap);
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    .faq-answer.open {
+        max-width: 800px;
+    }
+
+    .faq-item {
+        border-top: none;
     }
 
 }
