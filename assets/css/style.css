@@ -61,13 +61,6 @@ h6 {
     margin-top: var(--smallGap);
 }
 
-.btn-desktop {
-    padding: 13px 28px;
-    min-width: 140px;
-    margin-top: var(--smallGap);
-}
-
-
 /* NAV - MOBIL */
 /* Skjuler dekstop navbaren på mobil versionen */
 .nav-desktop {
@@ -198,6 +191,14 @@ h6 {
     }
 }
 
+/* Gør det tydeligt for brugeren, hvilken side de er på  */
+.nav-list .active {
+    color: var(--orange);
+}
+
+.nav-list-desktop .active {
+    color: var(--darkBlue);
+}
 
 /* FOOTER MOBILE */
 .footer {
@@ -300,6 +301,14 @@ h6 {
     .footer-container {
         flex-wrap: nowrap;
     }
+
+    .footer-section h3 {
+        padding-bottom: 1.5rem;
+    }
+
+    .map-iframe {
+        height: 200px;
+    }
 }
 
 /* FREJA start her */
@@ -346,6 +355,7 @@ h6 {
     transition: opacity 1000ms;
 }
 
+/* Animation på pilen*/
 @keyframes jump {
     0% {
         transform: translateX(-50%) translateY(0);
@@ -360,6 +370,7 @@ h6 {
     }
 }
 
+/* Slideshow til forsiden. For hvert breakpoint bliver et nyt billede vist */
 @keyframes slider {
     0% {
         background-image:
@@ -368,7 +379,7 @@ h6 {
     }
 
     20% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak_grill.webp');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
 
     }
 
@@ -605,12 +616,13 @@ h6 {
         column-count: 2;
         /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
         column-gap: var(--largeGap);
-        padding: var(--smallGap) var(--largeGap) var(--smallGap) var(--largeGap);
+        padding: var(--smallGap) var(--largeGap) 3rem var(--largeGap);
     }
 
     .intro-forside h2 {
         padding-left: var(--largeGap);
         padding-top: var(--smallGap);
+
     }
 
     /* Focused entry sektioner */
@@ -621,6 +633,7 @@ h6 {
         align-items: stretch;
         padding: 0 var(--largeGap) var(--smallGap);
         grid-template-rows: repeat(2, 300px);
+        padding-top: 1rem;
     }
 
     .entry-point-forside a {
@@ -689,16 +702,19 @@ h6 {
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
     .forside-main {
         max-width: 1200px;
     }
 
+    /* opsætter focused entry sektionen op i et grid på desktop */
     .entry-points-forside {
         display: grid;
         gap: var(--largeGap);
+        padding-top: var(--smallGap);
     }
 
+    /* Hero sektion - desktop */
     .hero {
         margin-top: 60px;
         margin: 0;
@@ -715,17 +731,14 @@ h6 {
     }
 
     .intro-forside {
-        text-align: center;
-        margin: 0 var(--smallGap);
+        text-align: start;
     }
 
     .intro-forside p {
+        margin: 0;
         text-align: start;
-        padding-bottom: var(--largeGap);
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* skift fx til 2fr 1fr for ulige kolonner */
-        column-gap: var(--largeGap);
         column-rule: 2px solid var(--darkBlue);
     }
 
@@ -862,13 +875,9 @@ h6 {
 /* Job - desktop */
 @media (min-width: 768px) {
 
-    .job-main {
-        max-width: 1200px;
-    }
-
     .hero-job {
         margin-top: 0;
-        height: 450px;
+        height: 400px;
         width: 100%;
     }
 
@@ -876,7 +885,7 @@ h6 {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0;
-        padding: var(--largeGap) 7rem 0 7rem;
+        padding: var(--largeGap) var(--smallGap) 0 var(--smallGap);
         margin-bottom: var(--largeGap);
         padding-bottom: var(--smallGap);
     }
@@ -939,10 +948,323 @@ h6 {
     }
 
     .btn-mobile {
-        width: 80px;
         font-size: medium;
     }
 }
+
+@media (min-width: 1100px) {
+
+    .hero-job {
+        height: 500px;
+    }
+
+    .job-main {
+        max-width: 1200px;
+    }
+
+    .job-intro {
+        padding: var(--largeGap) var(--largeGap) 0 var(--largeGap);
+    }
+}
+
+/* Om os - mobile */
+/* Hero sektion */
+.hero-about {
+    height: 250px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/terrasse.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.hero-about-heading {
+    color: var(--pmWhite);
+    padding: var(--smallGap);
+}
+
+.intro-about {
+    display: flex;
+    flex-direction: column;
+    padding: var(--smallGap);
+}
+
+.intro-about .about-images {
+    order: 2;
+}
+
+.intro-about-text {
+    order: 1;
+}
+
+.about-images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    object-position: center 30%;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smallGap);
+}
+
+.intro-about {
+    padding: var(--smallGap);
+}
+
+.intro-about h2 {
+    padding-bottom: 1rem;
+}
+
+.intro-about p {
+    line-height: 150%;
+    font-size: small;
+    font-family: "Roboto", sans-serif;
+    padding-bottom: var(--smallGap);
+}
+
+/* Midter indholdet på om os side */
+
+.about-image {
+    order: 3;
+    height: 250px;
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.about-section {
+    padding: 0 var(--smallGap) 1rem var(--smallGap);
+}
+
+.about-section article h2 {
+    padding-bottom: 1rem;
+}
+
+.about-section article p {
+    font-size: small;
+    font-family: "Roboto", sans-serif;
+    padding-bottom: 1rem;
+}
+
+/* Lokation sektionen */
+.location-about {
+    padding-top: 0;
+}
+
+.location-about h2 {
+    padding-top: 1rem;
+}
+
+.location-about h2,
+.location-about p {
+    padding-bottom: 1rem
+}
+
+.locations-about h3 {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    color: var(--darkBlue);
+
+}
+
+.locations-about ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.locations-about li {
+    padding-bottom: 1rem;
+    text-decoration: none;
+    color: var(--pmBlack);
+    display: flex;
+    align-items: flex-start;
+}
+
+.locations-about li i {
+    color: var(--orange);
+    padding-right: 1rem;
+    margin-top: 3px;
+    /* justerer ikonet så det flugter med første tekstlinje */
+    flex-shrink: 0;
+    /* forhindrer ikonet i at krympe */
+}
+
+.locations-about li a {
+    text-decoration: none;
+    color: var(--pmBlack);
+}
+
+/* FAQ */
+.faq-section {
+    padding: var(--smallGap) var(--smallGap) var(--largeGap) var(--smallGap);
+}
+
+.faq-section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    text-align: center;
+    margin-bottom: var(--smallGap);
+}
+
+.faq-item {
+    border-top: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--darkBlue);
+    border: none;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    font-weight: 500;
+    color: var(--pmWhite);
+    gap: 1rem;
+}
+
+.faq-question i {
+    color: var(--pmWhite);
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+    background-color: var(--darkBlue);
+    margin-bottom: 2px;
+}
+
+.faq-answer p {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    line-height: 150%;
+    color: var(--pmWhite);
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.faq-answer.open {
+    max-height: 300px;
+}
+
+
+/* Om os desktop */
+@media (min-width:768px) {
+    .hero-about {
+        margin-top: 0;
+        height: 400px;
+    }
+
+    .about-image {
+        height: 300px;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .locations-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-about h2 {
+        padding-top: var(--smallGap);
+    }
+
+    .intro-about .about-images {
+        height: 300px;
+    }
+
+    .about-images {
+        flex-direction: row;
+        gap: 0;
+        padding-top: var(--smallGap);
+    }
+
+}
+
+@media (min-width:1100px) {
+    .omos-main {
+        max-width: 1200px;
+    }
+
+    .hero-about {
+        height: 500px;
+    }
+
+    .intro-about {
+        flex-direction: row;
+        height: auto;
+        gap: var(--smallGap);
+        margin: var(--smallGap) var(--largeGap);
+        align-items: stretch;
+    }
+
+    .intro-about .about-image {
+        order: 1;
+        width: 50%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .intro-about h2:first-child {
+        padding-top: 0;
+    }
+
+    .intro-about h2 {
+        padding-top: var(--largeGap);
+    }
+
+    .intro-about-text {
+        order: 2;
+        flex: 1;
+    }
+
+    /* Familierestaurant og lokationer ved siden af hinanden */
+    .about-section {
+        padding: 0;
+        padding-left: var(--smallGap);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--smallGap);
+        margin: 0 var(--largeGap);
+    }
+
+    .about-section h2 {
+        padding-top: 0;
+    }
+
+    .about-image {
+        display: flex;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    /* FAQ på desktop */
+    .faq-wrapper {
+        margin: 0 var(--largeGap);
+    }
+
+}
+
 
 /* FREYA start her */
 
