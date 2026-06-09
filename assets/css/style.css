@@ -1010,7 +1010,7 @@ h6 {
 .about-images {
     display: flex;
     flex-direction: column;
-    gap: var(--smallGap);
+    gap: 10px;
 }
 
 .intro-about {
@@ -1085,10 +1085,15 @@ h6 {
     align-items: flex-start;
 }
 
+.locations-wrapper {
+    gap: var(--smallGap);
+}
+
 .locations-about li i {
     color: var(--orange);
-    padding-right: 1rem;
+    padding-right: 1.5rem;
     margin-top: 3px;
+    font-size: 1rem;
     /* justerer ikonet så det flugter med første tekstlinje */
     flex-shrink: 0;
     /* forhindrer ikonet i at krympe */
@@ -1097,6 +1102,14 @@ h6 {
 .locations-about li a {
     text-decoration: none;
     color: var(--pmBlack);
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+.locations-about li span {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+
 }
 
 /* FAQ */
@@ -1176,6 +1189,10 @@ h6 {
         height: 300px;
         object-fit: cover;
         object-position: center 30%;
+    }
+
+    .about-section article h2 {
+        padding-top: var();
     }
 
     .locations-wrapper {
