@@ -1474,7 +1474,7 @@ h6 {
 .intro-selskaber {
     background-color: var(--darkBlue);
     padding: var(--smallGap);
-    margin: var(--smallGap) var(--largeGap);
+    margin: var(--smallGap) var(--smallGap);
 }
 
 .intro-selskaber h2 {
