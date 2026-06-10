@@ -1319,7 +1319,7 @@ h6 {
 .intro-selskaber {
     background-color: var(--darkBlue);
     padding: var(--smallGap);
-    margin-top: var(--smallGap);
+    margin: var(--smallGap) var(--largeGap);
 }
 
 .intro-selskaber h2 {
@@ -1467,10 +1467,6 @@ h6 {
     margin-bottom: 1rem;
 }
 
-.faq-item:last-child {
-    border-bottom: 1px solid #ccc;
-}
-
 .faq-question {
     width: 100%;
     background-color: var(--darkBlue);
@@ -1527,7 +1523,7 @@ h6 {
 
     /* HERO */
     .hero-section-selskaber {
-        height: 350px;
+        height: 400px;
         margin-top: 0;
         display: flex;
         align-items: center;
@@ -1564,6 +1560,7 @@ h6 {
         grid-template-columns: 1fr 1fr;
         gap: var(--smallGap);
         margin-top: var(--smallGap);
+        margin: var(--smallGap) var(--largeGap);
     }
 
     .buffet-card {
@@ -1607,6 +1604,7 @@ h6 {
         grid-template-columns: 1fr 1fr;
         gap: var(--largeGap);
         align-items: start;
+        margin: var(--smallGap) var(--largeGap);
     }
 
     .faq-section h2 {
