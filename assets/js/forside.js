@@ -1,4 +1,29 @@
 /* Forside */
+// Hero slideshow
+const heroImages = [
+    './assets/img/baren.webp',
+    './assets/img/cheeseburger.webp',
+    './assets/img/restaurant69.webp',
+    './assets/img/pynt.webp',
+    './assets/img/steak.webp',
+    './assets/img/terrasse.webp'
+];
+
+const heroImg = document.getElementById('hero-slide-img');
+let heroIndex = 0;
+
+setInterval(() => {
+    heroImg.style.opacity = '0';
+
+    setTimeout(() => {
+        heroIndex = (heroIndex + 1) % heroImages.length;
+        heroImg.src = heroImages[heroIndex];
+        heroImg.style.opacity = '1';
+    }, 800);
+}, 5000);
+
+
+//Pilen fader ud idet man scroller ned på siden
 // Tilføjer en eventlistener, der lytter efter et scroll
 // Hero-pilen fader ud når man scroller væk fra hero sektionen
 
@@ -24,24 +49,24 @@ const heroObserver = new IntersectionObserver((entries) => {
 heroObserver.observe(hero);
 
 
-// Finder og viser/skjuler den ekstra tekst, når brugeren klikker
-function toggleText() {
-    if (window.innerWidth >= 769) return;
+// Finder alle "læs mere" knapper og skjult tekst
+document.querySelectorAll(".read-more-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        if (window.innerWidth >= 769) return;
 
-    const moreText = document.getElementById("moreText");
-    const btn = document.getElementById("readMoreBtn");
+        // Finder den nærmeste skjulte tekst i samme artikel
+        const moreText = this.closest("p, article").querySelector(".more-text");
 
-    moreText.classList.toggle("visible");
+        moreText.classList.toggle("visible");
 
-    if (moreText.classList.contains("visible")) {
-        btn.textContent = "[Luk]";
-    } else {
-        btn.textContent = "[...]";
-    }
-}
+        if (moreText.classList.contains("visible")) {
+            this.textContent = "[Luk]";
+        } else {
+            this.textContent = "[...]";
+        }
+    });
+});
 
-// Lytter efter klik på "læs mere" knappen
-document.getElementById("readMoreBtn").addEventListener("click", toggleText);
 
 // Anmeldelse sektion - forside
 // Finder alle anmeldelseskort og sætter tælleren til det første kort

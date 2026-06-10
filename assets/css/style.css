@@ -54,7 +54,7 @@ h6 {
     font-family: "Bebas Neue", sans-serif;
 }
 
-/* KNAP */
+/* Styling af KNAP - mobile og desktop */
 .btn {
     background-color: var(--orange);
     color: var(--pmWhite);
@@ -79,6 +79,7 @@ h6 {
     padding: 10px 15px;
 }
 
+/* Aktive links på mobile og desktop */
 .links .active {
     color: var(--orange);
 }
@@ -88,6 +89,7 @@ h6 {
         color: var(--darkBlue);
         border-bottom: 2px solid var(--darkBlue);
         padding-bottom: 4px;
+        transition: width 0.25s ease;
     }
 }
 
@@ -305,36 +307,28 @@ h6 {
 
 /* FREJA start her */
 /* FORSIDE */
-
-.btn-desktop {
-    display: none;
-}
-
-.hero-section-forside {
-    width: 100%;
-    display: block;
-    height: 200px;
-    margin-top: 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
-    background-size: cover;
-    background-position: center;
-}
-
-/* Hero - animation */
+/* Hero slider*/
 .hero {
-    margin: 0px;
+    margin: 0;
     height: 250px;
     width: 100%;
     margin-top: 60px;
     position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: slider 30s ease-in infinite;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+#hero-slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
+    transition: opacity 0.4s ease;
 }
 
 .hero h1 {
@@ -376,30 +370,16 @@ h6 {
     transition: opacity 1000ms;
 }
 
-@keyframes slider {
-    0% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/baren.webp');
-    }
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
 
-    20% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
-    }
-
-    40% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/lokale_ved_sidenaf.webp');
-    }
-
-    60% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
-    }
-
-    80% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak.webp');
-    }
-
-    100% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
-    }
+.hero h1,
+#hero-arrow {
+    z-index: 1;
 }
 
 /* Uddybende intro tekst på forsiden */
@@ -453,6 +433,10 @@ h6 {
     padding: 1rem 0;
 }
 
+.entry-point-forside a.btn {
+    width: fit-content;
+}
+
 .entry-img {
     width: 100%;
     height: 200px;
@@ -475,11 +459,13 @@ h6 {
 
 .entry-point-forside {
     padding-top: var(--smallGap);
+    padding-bottom: var(--smallGap);
 }
 
 /* Hvorfor vælge Highway */
 .choosing-section h2 {
     margin-bottom: 1rem;
+    padding-top: var(--smallGap);
 }
 
 .pick-list {
@@ -549,12 +535,11 @@ h6 {
     background-color: var(--darkBlue);
     color: var(--pmWhite);
     border-radius: 0;
-    padding: 2rem;
+    padding: 1rem;
     max-width: 300px;
     margin-inline: auto;
     box-sizing: border-box;
     padding-bottom: 0;
-    height: 350px;
 }
 
 .review-card .stars {
@@ -610,8 +595,6 @@ h6 {
         height: 450px;
         margin-top: 60px;
         margin: 0;
-        background-size: cover;
-        background-position: center;
     }
 
     /* Intro sektion */
@@ -619,13 +602,11 @@ h6 {
         column-count: 2;
         /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
         column-gap: var(--largeGap);
-        padding: var(--smallGap) var(--largeGap) 3rem var(--largeGap);
+        padding: var(--smallGap) 0 3rem 0;
     }
 
     .intro-forside h2 {
-        padding-left: var(--largeGap);
         padding-top: var(--smallGap);
-
     }
 
     /* Focused entry sektioner */
@@ -634,9 +615,8 @@ h6 {
         grid-template-columns: 1fr 1fr;
         gap: var(--smallGap);
         align-items: stretch;
-        padding: 0 var(--largeGap) var(--smallGap);
         grid-template-rows: repeat(2, 300px);
-        padding-top: 1rem;
+        padding: 1rem 0 var(--smallGap) 0;
     }
 
     .entry-point-forside a {
@@ -664,12 +644,11 @@ h6 {
 
     #menukort-heading {
         padding: 0;
-        padding-bottom: var(--smallGap);
     }
 
     /* Hvorfor vælge highway - sektion */
     .choosing-section {
-        padding: var(--largeGap) var(--largeGap) var(--smallGap) var(--largeGap);
+        padding: var(--largeGap) 0 var(--smallGap) 0;
     }
 
     .images-bottom-front-page {
@@ -687,11 +666,6 @@ h6 {
     .reviews-section h2 {
         padding-top: 3rem;
         padding-left: 0;
-    }
-
-    .reviews-section {
-        padding: 0 var(--largeGap);
-        padding-bottom: var(--largeGap);
     }
 
     #moreText {
@@ -779,10 +753,6 @@ h6 {
     }
 
     /* Anmeldelser sektionen */
-    .reviews-section {
-        padding-left: var(--largeGap);
-    }
-
     .reviews-section h2 {
         padding-top: var(--largeGap);
     }
@@ -829,7 +799,7 @@ h6 {
 }
 
 .job-text {
-    padding: var(--smallGap) var(--smallGap) 0 var(--smallGap);
+    padding-top: var(--smallGap);
     font-family: "Roboto", sans-serif;
     line-height: 150%;
     font-size: small;
@@ -855,10 +825,10 @@ h6 {
 .offer-job ul {
     list-style: none;
     padding: 0;
+}
 
-    li {
-        padding-bottom: 1rem;
-    }
+.offer-job ul li {
+    padding-bottom: 1rem;
 }
 
 .offer-job li i {
@@ -885,6 +855,10 @@ h6 {
         margin-top: 0;
         height: 400px;
         width: 100%;
+    }
+
+    .hero-job-heading {
+        font-size: 2rem;
     }
 
     .job-intro {
@@ -945,12 +919,13 @@ h6 {
     .offer-job ul {
         list-style: none;
         padding: 0;
+    }
 
-        li {
-            padding-bottom: 1.5rem;
-            font-size: small;
-            line-height: 150%;
-        }
+    .offer-job ul li {
+        padding-bottom: 1.5rem;
+        font-size: small;
+        line-height: 150%;
+
     }
 }
 
@@ -958,6 +933,10 @@ h6 {
 
     .hero-job {
         height: 500px;
+    }
+
+    .hero-job-heading {
+        font-size: 2.5rem;
     }
 
     .job-main {
@@ -1179,6 +1158,10 @@ h6 {
         height: 400px;
     }
 
+    .hero-about-heading {
+        font-size: 2rem;
+    }
+
     .about-image {
         height: 300px;
         object-fit: cover;
@@ -1186,7 +1169,7 @@ h6 {
     }
 
     .about-section article h2 {
-        padding-top: var();
+        padding-top: var(--smallGap);
     }
 
     .locations-wrapper {
@@ -1219,12 +1202,19 @@ h6 {
         height: 500px;
     }
 
+    .hero-about-heading {
+        font-size: 2.5rem;
+    }
+
     .intro-about {
         flex-direction: row;
         height: auto;
         gap: var(--smallGap);
-        margin: var(--smallGap) var(--largeGap);
+        margin: 0;
+        padding: 0;
         align-items: stretch;
+        margin-top: var(--largeGap);
+        margin-bottom: var(--smallGap);
     }
 
     .intro-about .about-image {
@@ -1250,11 +1240,10 @@ h6 {
     /* Familierestaurant og lokationer ved siden af hinanden */
     .about-section {
         padding: 0;
-        padding-left: var(--smallGap);
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--smallGap);
-        margin: 0 var(--largeGap);
+        margin: 0;
     }
 
     .about-section h2 {
@@ -1272,7 +1261,7 @@ h6 {
     /* FAQ på desktop */
     .faq-wrapper {
         margin: 0 auto;
-        max-width: 800px;
+        max-width: 700px;
     }
 
     .faq-answer.open {
@@ -1318,21 +1307,6 @@ h6 {
     z-index: 0;
 }
 
-.hero-overlay-menukort {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(180deg,
-            rgba(0, 0, 0, 0.40) 99.99%,
-            rgba(102, 102, 102, 0.40) 100%);
-
-    z-index: 1;
-}
-
 .hero-content-menukort {
     position: relative;
     z-index: 2;
@@ -1344,6 +1318,7 @@ h6 {
     font-size: 36px;
     font-weight: 800;
     text-transform: uppercase;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/american_steak.webp);
     margin: 0;
 }
 
@@ -1413,7 +1388,7 @@ h6 {
 }
 
 .menuOverskrift h2 {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
 }
 
@@ -1447,7 +1422,8 @@ h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    font-size: 0.9rem;
+    font-size: small;
+    font-family: "Roboto", sans-serif;
 }
 
 .menuInfo i {
@@ -1475,7 +1451,7 @@ h6 {
 
 .drikkevarer {
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
 }
 
 .drikkevarer h2 {
@@ -1507,10 +1483,9 @@ h6 {
 }
 
 .drikkeKategoriTitel h3 {
-    color: var(--pmBlack);
-    font-family: "Roboto", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
+    color: var(--darkBlue);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
 }
 
 .drikkeProdukt {
@@ -1541,8 +1516,9 @@ h6 {
 
 .drikkeBeskrivelse {
     font-family: "Roboto", sans-serif;
-    font-size: 0.85rem;
+    font-size: small;
     line-height: 150%;
+    padding-top: 10px;
 }
 
 .tomBesked {
@@ -1561,7 +1537,7 @@ h6 {
 
     .menuIntro h1,
     .drikkevarer h2 {
-        font-size: 3.2rem;
+        font-size: 2.5rem;
     }
 
     .menuKnapper {
@@ -1580,7 +1556,7 @@ h6 {
     }
 
     .menuOverskrift h2 {
-        font-size: 2.8rem;
+        font-size: 2rem;
     }
 
     .menuGrid {
@@ -1630,7 +1606,6 @@ h6 {
 .hero-section-selskaber h1 {
     color: var(--pmWhite);
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
     letter-spacing: 4px;
 }
 
@@ -1780,7 +1755,9 @@ h6 {
         justify-content: center;
     }
 
-
+    .hero-section-selskaber h1 {
+        font-size: 2.5rem;
+    }
 
     /* INTRO BLÅ BOKS */
     .intro-selskaber {
@@ -1906,7 +1883,6 @@ h6 {
 .hero-section-kontakt h1 {
     color: var(--pmWhite);
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
     letter-spacing: 4px;
 }
 
@@ -1989,6 +1965,10 @@ h6 {
         justify-content: center;
     }
 
+    .hero-section-kontakt h1 {
+        font-size: 2.5rem;
+    }
+
     /* Intro – tekst venstre, billede højre */
     .kontakt-intro-wrapper {
         display: grid;
@@ -2048,12 +2028,11 @@ h6 {
 .hero-section-bookbord h1 {
     color: var(--pmWhite);
     font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
     letter-spacing: 4px;
 }
 
 .bookbord-intro {
-    padding: var(--smallGap);
+    padding: var(--smallGap) 0;
 }
 
 .bookbord-intro h2 {
@@ -2109,6 +2088,10 @@ h6 {
         justify-content: center;
     }
 
+    .hero-section-bookbord h1 {
+        font-size: 2.5rem;
+    }
+
     .bookbord-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2122,88 +2105,49 @@ h6 {
         height: 320px;
         margin-bottom: 0;
     }
+
+    .bookbord-intro {
+        padding: 0;
+    }
 }
 
 /* NICKLAS start her */
 /* Menukort Hero Start*/
-.hero-menukort {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    max-width: 100%;
-    overflow: hidden;
 
+.hero-section-menukort h1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/american_steak.webp);
+    width: 100%;
+    height: 250px;
+    margin-top: 60px;
+    background-size: cover;
+    background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.hero-img-menukort {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    max-width: none;
-
-    object-fit: cover;
-    object-position: center bottom;
-
-    display: block;
-    z-index: 0;
-}
-
-.hero-overlay-menukort {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(180deg,
-            rgba(0, 0, 0, 0.40) 99.99%,
-            rgba(102, 102, 102, 0.40) 100%);
-
-    z-index: 1;
-}
-
-.hero-content-menukort {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.hero-content-menukort h1 {
-    color: white;
-    font-size: 36px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin: 0;
+    justify-content: center;
+    color: var(--pmWhite);
 }
 
 /* Menukort Hero Slut */
 
 /* Responsivt design */
 @media (min-width: 768px) {
-    .hero-menukort {
-        height: 350px;
+    .hero-section-menukort h1 {
+        height: 400px;
+        margin-top: 0;
     }
 
     .hero-content-menukort h1 {
-        font-size: 56px;
+        font-size: 2rem;
     }
 }
 
 @media (min-width: 1200px) {
-    .hero-menukort {
-        height: 450px;
+
+    .hero-section-menukort h1 {
+        font-size: 2.5rem;
+        height: 500px;
     }
 
-    .hero-content-menukort h1 {
-        font-size: 72px;
-    }
 }
 
 

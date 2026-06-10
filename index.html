@@ -49,13 +49,17 @@
 			</ul>
 		</nav>
 	</header>
+
 	<!-- Hero sektionen -->
 	<div class="hero">
+		<img id="hero-slide-img" src="./assets/img/baren.webp" alt="Billede af baren på highway 69"
+			title="hero billede">
 		<h1>Velkommen til Highway 69</h1>
-		<a href="#forside-intro"><i class="fa-solid fa-chevron-down" id="hero-arrow"></i></a>
+		<a href="#forside-intro" aria-label="scroll ned til indhold"><i class="fa-solid fa-chevron-down"
+				id="hero-arrow"></i></a>
 	</div>
 	<main class="forside-main">
-		<section class="intro-forside" id="forside-intro">
+		<div class="intro-forside" id="forside-intro">
 			<article>
 				<h2>Amerikansk diner med fokus på kvalitet og klassiske retter</h2>
 				<p>Hos Highway 69 tilbyder vi en amerikansk-inspireret dineroplevelse med fokus på klassiske retter som
@@ -70,67 +74,92 @@
 					<button id="readMoreBtn" class="read-more-btn">[...]</button>
 				</p>
 			</article>
-		</section>
-		<section class="entry-points-forside">
+		</div>
+		<div class="entry-points-forside">
 			<article class="entry-point-forside">
 				<h2>Hold dit selskab hos os</h2>
 				<p>Lad Highway 69 danne rammen om dine særlige øjeblikke. Vi tilbyder fleksible løsninger, lækre menuer
 					og
 					en uformel, hyggelig stemning, der passer til både familiearrangementer, fødselsdage, konfirmationer
-					eller lignende. Sammen skaber vi en oplevelse, hvor både mad og rammer spiller sammen.</p>
-				<a href="./selskaber.html"><button class="btn btn-mobile">Selskabsmuligheder</button></a>
+					eller lignende. Sammen skaber vi en oplevelse, hvor både mad og rammer spiller sammen. <span
+						class="more-text">
+						Uanset om du
+						drømmer om en afslappet fejring eller en større fest, sørger vi for, at alt spiller – fra den
+						første
+						velkomst til de sidste gæster går hjem. Vores team står klar til at hjælpe dig med
+						planlægningen, så
+						du får en begivenhed, der føles både personlig og gennemført.
+					</span><button class="read-more-btn">[...]</button></p>
+				<a href="./selskaber.html" class="btn btn-mobile">Selskabsmuligheder</a>
 			</article>
 			<img src="./assets/img/flere_steaks.webp" alt="Billede af en række american steaks - klar til severing"
-				class="entry-img" id="stekas-entry-img">
+				class="entry-img" id="stekas-entry-img" loading="lazy" title="American Steaks billede">
 			<article class="entry-point-forside">
 				<h2 id="menukort-heading">Amerikansk dinerstemning i Sæby</h2>
 				<p>Er du på udkig du efter en restaurant i Sæby med ægte amerikansk diner-stemning? Så skal du lægge
 					vejen forbi Highway 69, som byder på en autentisk oplevelse inspireret af en klassisk amerikansk
 					diner. Restauranten fungerer som et populært samlingspunkt for både lokale og besøgende, der gerne
-					vil spise godt i afslappede rammer. </p>
-				<a href="./menukort.html"><button class="btn btn-mobile">Se menukort</button></a>
+					vil spise godt i afslappede rammer. <span class="more-text">Hos os er der fokus på både smag og
+						atmosfære. Med
+						ikonisk diner-indretning, god musik og en menu fyldt med amerikanske favoritter får du en
+						oplevelse,
+						der føles som en lille bid af USA.
+					</span><button class="read-more-btn">[...]</button></p>
+
+				<a href="./menukort.html" class="btn btn-mobile">Se menukort</a>
 			</article>
 			<img src="./assets/img/spareribs.webp" alt="Billede af en portion medium ben" class="entry-img"
-				id="ribs-img">
-		</section>
-		<section class="choosing-section">
+				id="ribs-img" loading="lazy" title="Medium Spareribs">
+		</div>
+		<div class="choosing-section">
 			<h2>Hvorfor vælge Highway 69?</h2>
 			<ul class="pick-list">
-				<li class="point"><img src="./assets/img/people-group-solid-full.png" alt="Et ikon af en familie">En
+				<li class="point"><img src="./assets/img/people-group-solid-full.png" alt="Et ikon af en familie"
+						loading="lazy" title="Billede af et familieikon">En
 					familievenlig restaurant, hvor både børn og
 					voksne kan være
 					med.</li>
-				<li class="point"><img src="./assets/img/flag-usa-solid-full.png" alt="">Amerikansk inspireret udvalg
+				<li class="point"><img src="./assets/img/flag-usa-solid-full.png" alt="ikon af et amerikansk flag"
+						loading="lazy" title="Billede af et flag ikon">Amerikansk inspireret udvalg
 					med fokus på kød,
 					kvalitet og
 					variation.</li>
-				<li class="point"><img src="./assets/img/bruger.png" alt="">Håndværk og erfaring i tilberedningen af
+				<li class="point"><img src="./assets/img/bruger.png"
+						alt="ikon af en burger som symbol på erfaring og håndværk" loading="lazy"
+						title="Billede af et burger ikon">Håndværk og erfaring i
+					tilberedningen
+					af
 					steaks og
 					burgere.
 				</li>
-				<li class="point"><img src="./assets/img/ribssvg_red.svg"
-						alt="Billede af en portion spareribs">Klassiske
+				<li class="point"><img src="./assets/img/ribssvg_red.svg" alt="Billede af en portion spareribs"
+						loading="lazy" title="Billede af et spareribs ikon">Klassiske
 					spareribs-opskrifter med
 					historie og smag.</li>
-				<li class="point"><img src="./assets/img/battery-three-quarters-solid-full.png" alt=""> Hyggelig
+				<li class="point"><img src="./assets/img/battery-three-quarters-solid-full.png"
+						alt="ikon af et batteri, der lader op" loading="lazy" title="billede af et batteri"> Hyggelig
 					atmosfære – afslappede
 					rammer til både
 					hverdag og weekend.</li>
-				<li class="point"><img src="./assets/img/hand-holding-heart-solid-full.png" alt="">Personale der hjælper
+				<li class="point"><img src="./assets/img/hand-holding-heart-solid-full.png"
+						alt="ikon af en hånd der holder et hjerte" loading="lazy"
+						title="Billede af ikon der viser omsorg">Personale der hjælper
 					dig med at finde
 					det helt rigtige
 					valg.</li>
 			</ul>
-		</section>
-		<div class="images-bottom-front-page">
-			<img src="./assets/img/cheeseburger.webp" alt="Billede af en række cheeseburgere">
-			<img src="./assets/img/pizza.webp" alt="Billede af måneds pizza">
 		</div>
-		<section class="reviews-section">
+		<div class="images-bottom-front-page">
+			<img src="./assets/img/cheeseburger.webp" alt="Billede af en række cheeseburgere" loading="lazy"
+				title="Billede af cheeseburgere">
+			<img src="./assets/img/pizza.webp" alt="Billede af måneds pizza" loading="lazy"
+				title="Billede af måneds pizza">
+		</div>
+		<div class="reviews-section">
 			<h2>Det siger kunderne om os:</h2>
 
 			<div class="reviews-slider">
-				<button class="slider-btn prev" id="prevBtn">&#8249;</button>
+				<button class="slider-btn prev" id="prevBtn" aria-label="Tidligere anmeldelse">&#8249;</button>
 
 				<div class="reviews-track">
 					<article class="review-card">
@@ -179,9 +208,9 @@
 						</div>
 					</article>
 				</div>
-				<button class="slider-btn next" id="nextBtn">&#8250;</button>
+				<button class="slider-btn next" id="nextBtn" aria-label="Næste anmeldelse">&#8250;</button>
 			</div>
-		</section>
+		</div>
 	</main>
 	<footer class="footer">
 		<div class="footer-container">
@@ -208,16 +237,18 @@
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2494.8777394038148!2d10.511452012891626!3d57.34397397360482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464f23791f34e95b%3A0x2f5ff58b0fe60514!2sHighway%2069!5e1!3m2!1sda!2sdk!4v1780762509409!5m2!1sda!2sdk"
 						style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-						class="map-iframe"></iframe>
+						class="map-iframe" title="Kort over Highway 69"></iframe>
 
 					<div class="footer-icons">
-						<a href="https://www.facebook.com/highway69saeby/?locale=da_DK">
-							<img src="./assets/img/Facebook_Logo_Secondary.png" alt="Facebook ikon" id="facebookIcon">
+						<a href="https://www.facebook.com/highway69saeby/?locale=da_DK"
+							aria-label="Besøg Highway 69 på Facebook">
+							<img src="./assets/img/Facebook_Logo_Secondary.png" alt="Facebook ikon" id="facebookIcon"
+								loading="lazy" title="Facebook ikon">
 						</a>
-						<a
-							href="https://www.tripadvisor.com/Restaurant_Review-g1486554-d3445259-Reviews-Restaurant_Highway_69-Saeby_Frederikshavn_North_Jutland_Jutland.html">
-							<img src="./assets/img/Tripadvisor_Inverted_Ollie_RGB_White_For Dark Background.svg"
-								alt="Tripadvisor ikon" id="tripadvisorIcon">
+						<a href="https://www.tripadvisor.com/Restaurant_Review-g1486554-d3445259-Reviews-Restaurant_Highway_69-Saeby_Frederikshavn_North_Jutland_Jutland.html"
+							aria-label="Læs anmeldelser om Highway 69">
+							<img src="./assets/img/tripadvisor_ikon.svg" alt="Tripadvisor ikon" id="tripadvisorIcon"
+								loading="lazy" title="Tripadvisor ikon">
 						</a>
 					</div>
 				</div>
