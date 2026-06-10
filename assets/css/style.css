@@ -113,6 +113,12 @@ h6 {
     box-shadow: 8px 8px 35px 15px rgba(0, 0, 0, 0.25);
 }
 
+.nav-mobile a,
+.nav-desktop a {
+    display: flex;
+    align-items: center;
+}
+
 #logoHighway-mobile {
     height: 40px;
 }
@@ -648,7 +654,7 @@ h6 {
 
     /* Hvorfor vælge highway - sektion */
     .choosing-section {
-        padding: var(--largeGap) 0 var(--smallGap) 0;
+        padding: 0 0 var(--smallGap) 0;
     }
 
     .images-bottom-front-page {
