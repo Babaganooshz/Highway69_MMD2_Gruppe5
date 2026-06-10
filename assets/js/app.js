@@ -44,31 +44,6 @@ document.addEventListener("click", function (event) {
 });
 
 /* FREJA start her */
-/* Forside */
-// Finder og viser/skjuler den ekstra tekst, når brugeren klikker
-function toggleText() {
-    const moreText = document.getElementById("moreText");
-    const btn = document.getElementById("readMoreBtn");
-
-    // Tilføjer eller fjerner klassen "visible" på tekst-elementet
-    moreText.classList.toggle("visible");
-
-    // Opdaterer knapteksten afhængigt af om teksten er synlig
-    if (moreText.classList.contains("visible")) {
-        btn.textContent = "[Luk]";
-    } else {
-        btn.textContent = "[...]";
-    }
-}
-
-// Lytter efter klik på "læs mere" knappen
-const readMoreBtn = document.getElementById("readMoreBtn");
-
-if (readMoreBtn) {
-    readMoreBtn.addEventListener("click", toggleText);
-}
-
-
 
 /* FREYA Start her */
 
