@@ -1834,6 +1834,8 @@ h6 {
         align-self: flex-end;
     }
 
+
+
     /* Skubber knappen ned i bunden af kortet */
     .buffet-card .btn {
         padding: 14px 24px;
@@ -1875,12 +1877,10 @@ h6 {
     .selskaber-img-section img {
         object-fit: cover;
         display: block;
+
     }
 
-    .selskaber-img-section {
-        height: 100%;
-        padding: 0;
-    }
+
 
 }
 
