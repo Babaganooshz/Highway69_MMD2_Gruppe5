@@ -67,7 +67,7 @@ h6 {
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.1s ease;
     text-decoration: none;
-    font-size: 15px;
+    font-size: small;
 }
 
 .btn:hover {
@@ -76,16 +76,17 @@ h6 {
 }
 
 .btn-mobile {
-    padding: 14px 24px;
-}
-
-.btn-desktop {
-    padding: 13px 28px;
-    min-width: 140px;
+    padding: 10px 15px;
 }
 
 .links .active {
-    color: var(--darkBlue);
+    color: var(--orange);
+}
+
+@media (min-width:768px) {
+    .links .active {
+        color: var(--darkBlue);
+    }
 }
 
 /* NAV - MOBIL */
@@ -140,21 +141,20 @@ h6 {
 
 .navDropdown {
     position: fixed;
+    background-color: var(--darkBlue);
     top: 60px;
     right: 0;
     width: 60%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     transform: translateX(100%);
     transition: transform 0.4s ease;
-
 }
 
 .navDropdown.show {
     transform: translateX(0);
     box-shadow: 8px 8px 35px 35px rgba(0, 0, 0, 0.25);
 }
-
 
 /* NAV - DESKTOP */
 @media (min-width: 768px) {
@@ -238,8 +238,8 @@ h6 {
 
 #facebookIcon,
 #tripadvisorIcon {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 
 }
 
@@ -269,7 +269,7 @@ h6 {
         justify-content: center;
         align-items: flex-start;
         margin: 0 auto;
-        gap: var(--smallGap);
+        gap: var(--largeGap);
     }
 
     .footer-section {
@@ -318,7 +318,95 @@ h6 {
     background-position: center;
 }
 
+/* Hero - animation */
+.hero {
+    margin: 0px;
+    height: 250px;
+    width: 100%;
+    margin-top: 60px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slider 15s ease-in infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.hero h1 {
+    color: var(--pmWhite);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#forside-intro {
+    scroll-margin-top: 90px;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+#hero-arrow {
+    color: var(--pmWhite);
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation-name: jump;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: opacity 1000ms;
+}
+
+@keyframes slider {
+    0% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/baren.webp');
+    }
+
+    20% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
+    }
+
+    40% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/lokale_ved_sidenaf.webp');
+    }
+
+    60% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
+    }
+
+    80% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak.webp');
+    }
+
+    100% {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
+    }
+}
+
 /* Uddybende intro tekst på forsiden */
+
+.forside-main {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
 .more-text {
     display: none;
     opacity: 0;
@@ -345,8 +433,7 @@ h6 {
 
 .intro-forside p {
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap) 0 var(--smallGap) 0;
-    line-height: 150%;
+    padding: 1rem 0 var(--smallGap) 0;
     font-size: small;
 }
 
@@ -359,6 +446,880 @@ h6 {
     height: 170px;
     object-fit: cover;
 }
+
+.entry-point-forside p {
+    padding: 1rem 0;
+}
+
+.entry-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+#stekas-entry-img {
+    order: -1;
+    margin: 0;
+}
+
+/* Focused entry point sektionen */
+.entry-points-forside {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.entry-point-forside {
+    padding-top: var(--smallGap);
+}
+
+/* Hvorfor vælge Highway */
+.choosing-section h2 {
+    margin-bottom: 1rem;
+}
+
+.pick-list {
+    list-style: none;
+    padding: 0;
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0.85rem 0;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    line-height: 150%;
+}
+
+.point:last-child {
+    border-bottom: none;
+}
+
+.point img {
+    width: 1.75rem;
+    min-width: 1.75rem;
+    height: auto;
+    margin-top: 2px;
+}
+
+.images-bottom-front-page {
+    padding: var(--smallGap) 0;
+    width: 100%;
+}
+
+.images-bottom-front-page img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Anmeldelse sektion forside */
+/* Anmeldelse slider */
+.reviews-section h2 {
+    padding-bottom: var(--smallGap);
+}
+
+.reviews-section {
+    padding-bottom: var(--largeGap);
+}
+
+.reviews-slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviews-track {
+    overflow: hidden;
+    width: 100%;
+}
+
+.reviews-track-inner {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.review-card {
+    background-color: var(--darkBlue);
+    color: var(--pmWhite);
+    border-radius: 0;
+    padding: 2rem;
+    max-width: 300px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding-bottom: 0;
+    height: 350px;
+}
+
+.review-card .stars {
+    color: var(--pmWhite);
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.review-date {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    margin: 0.5rem 0;
+}
+
+.review-card h3 {
+    color: var(--pmWhite);
+    margin: 1rem 0 0.5rem 0;
+}
+
+.slider-btn {
+    padding: 0 0.5rem;
+}
+
+/* Forside desktop */
+@media (min-width: 768px) {
+
+    .forside-main {
+        max-width: 1200px;
+    }
+
+    /* Hero sektionen */
+    .hero {
+        height: 450px;
+        margin-top: 60px;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Intro sektion */
+    .intro-forside p {
+        column-count: 2;
+        /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
+        column-gap: var(--largeGap);
+        padding: var(--smallGap) var(--largeGap) 3rem var(--largeGap);
+    }
+
+    .intro-forside h2 {
+        padding-left: var(--largeGap);
+        padding-top: var(--smallGap);
+
+    }
+
+    /* Focused entry sektioner */
+    .entry-points-forside {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--smallGap);
+        align-items: stretch;
+        padding: 0 var(--largeGap) var(--smallGap);
+        grid-template-rows: repeat(2, 300px);
+        padding-top: 1rem;
+    }
+
+    .entry-point-forside a {
+        margin-top: auto;
+    }
+
+    .entry-point-forside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 0;
+    }
+
+    .entry-img {
+        height: 300px;
+    }
+
+    #stekas-entry-img {
+        width: 100%;
+        height: 100%;
+        min-height: 250px;
+        object-fit: cover;
+        padding: 0;
+    }
+
+    #menukort-heading {
+        padding: 0;
+        padding-bottom: var(--smallGap);
+    }
+
+    /* Hvorfor vælge highway - sektion */
+    .choosing-section {
+        padding: var(--largeGap) var(--largeGap) var(--smallGap) var(--largeGap);
+    }
+
+    .images-bottom-front-page {
+        display: flex;
+        gap: 0;
+        height: 250px;
+        padding: 0;
+    }
+
+    .images-bottom-front-page img {
+        height: 100%;
+    }
+
+    /* Anmeldelser sektion */
+    .reviews-section h2 {
+        padding-top: 3rem;
+        padding-left: 0;
+    }
+
+    .reviews-section {
+        padding: 0 var(--largeGap);
+        padding-bottom: var(--largeGap);
+    }
+
+    #moreText {
+        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    #readMoreBtn {
+        display: none;
+    }
+}
+
+@media (min-width: 1100px) {
+
+    /* opsætter focused entry sektionen op i et grid på desktop */
+    .entry-points-forside {
+        display: grid;
+        gap: var(--largeGap);
+        padding-top: var(--smallGap);
+    }
+
+    /* Hero sektion - desktop */
+    .hero {
+        margin-top: 60px;
+        margin: 0;
+        height: 500px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #moreText {
+        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    .intro-forside {
+        text-align: start;
+    }
+
+    .intro-forside p {
+        margin: 0;
+        text-align: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #readMoreBtn {
+        display: none;
+    }
+
+    /* Hvorfor vælge highway */
+    .pick-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--largeGap);
+        padding-top: 1rem;
+    }
+
+    .choosing-section h2 {
+        margin: 0;
+    }
+
+
+    /* Billeder i bunden af forsiden */
+    .images-bottom-front-page img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .images-bottom-front-page {
+        width: 100%;
+        height: 300px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Anmeldelser sektionen */
+    .reviews-section {
+        padding-left: var(--largeGap);
+    }
+
+    .reviews-section h2 {
+        padding-top: var(--largeGap);
+    }
+
+    .slider-btn {
+        display: none;
+    }
+
+    .reviews-slider {
+        display: block;
+    }
+
+    .reviews-track {
+        overflow: visible;
+        width: 100%;
+        display: flex;
+        gap: var(--smallGap);
+    }
+
+    .review-card {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .reviewer {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+}
+
+
+.reviews-track-inner {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.review-card {
+    background-color: var(--darkBlue);
+    color: var(--pmWhite);
+    border-radius: 0;
+    padding: 2rem;
+    max-width: 300px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding-bottom: 0;
+}
+
+.review-card .stars {
+    color: var(--pmWhite);
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.review-date {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    margin: 0.5rem 0;
+}
+
+.review-card h3 {
+    color: var(--pmWhite);
+    margin: 1rem 0 0.5rem 0;
+}
+
+.review-card p {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    line-height: 150%;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--smallGap) 0;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+.slider-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--darkBlue);
+    padding: 0 0.5rem;
+}
+
+/* Job - mobile */
+/* Hero område */
+.hero-job {
+    height: 250px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.hero-job-heading {
+    color: white;
+}
+
+.job-text {
+    padding: var(--smallGap) var(--smallGap) 0 var(--smallGap);
+    font-family: "Roboto", sans-serif;
+    line-height: 150%;
+    font-size: small;
+}
+
+.job-text h2 {
+    padding-bottom: var(--smallGap);
+}
+
+.job-img img {
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    padding-top: var(--smallGap);
+    padding-bottom: var(--largeGap);
+    width: 100%;
+}
+
+.offer-job h3 {
+    padding-bottom: 1rem;
+}
+
+.offer-job ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding-bottom: 1rem;
+    }
+}
+
+.offer-job li i {
+    color: var(--orange);
+    font-size: 1rem;
+}
+
+.offer-job li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.job-text p span {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: var(--smallGap);
+}
+
+/* Job - desktop */
+@media (min-width: 768px) {
+
+    .hero-job {
+        margin-top: 0;
+        height: 400px;
+        width: 100%;
+    }
+
+    .job-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        padding: var(--largeGap) var(--smallGap) 0 var(--smallGap);
+        margin-bottom: var(--largeGap);
+        padding-bottom: var(--smallGap);
+    }
+
+    .job-img {
+        order: -1;
+    }
+
+    .job-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding-bottom: 0;
+    }
+
+    .job-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .job-text h2 {
+        font-size: x-large;
+    }
+
+    .job-text p {
+        font-size: small;
+        line-height: 150%;
+    }
+
+    .job-text a {
+        margin-top: auto;
+        align-self: flex-end;
+    }
+
+    .job-text p span {
+        display: block;
+        margin-top: 1.5rem;
+        margin-bottom: var(--smallGap);
+    }
+
+    .offer-job {
+        padding-top: var(--smallGap);
+        padding-bottom: var(--smallGap);
+    }
+
+    .offer-job h3 {
+        padding-bottom: 1rem;
+        font-size: large;
+    }
+
+    .offer-job ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding-bottom: 1.5rem;
+            font-size: small;
+            line-height: 150%;
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+
+    .hero-job {
+        height: 500px;
+    }
+
+    .job-main {
+        max-width: 1200px;
+    }
+
+    .job-intro {
+        padding: var(--largeGap) var(--largeGap) 0 var(--largeGap);
+    }
+}
+
+/* Om os - mobile */
+/* Hero sektion */
+.hero-about {
+    height: 250px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/terrasse.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.hero-about-heading {
+    color: var(--pmWhite);
+    padding: var(--smallGap);
+}
+
+.intro-about {
+    display: flex;
+    flex-direction: column;
+    padding: var(--smallGap) 0;
+}
+
+.intro-about .about-images {
+    order: 2;
+}
+
+.intro-about-text {
+    order: 1;
+}
+
+.about-images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    object-position: center 30%;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.intro-about h2 {
+    padding-bottom: 1rem;
+}
+
+.intro-about p {
+    line-height: 150%;
+    font-size: small;
+    font-family: "Roboto", sans-serif;
+    padding-bottom: var(--smallGap);
+}
+
+/* Midter indholdet på om os side */
+
+.about-image {
+    order: 3;
+    height: 250px;
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.about-section article h2 {
+    padding-bottom: 1rem;
+}
+
+.about-section article p {
+    font-size: small;
+    font-family: "Roboto", sans-serif;
+    padding-bottom: 1rem;
+}
+
+/* Lokation sektionen */
+.location-about {
+    padding-top: 0;
+}
+
+.location-about h2 {
+    padding-top: 1rem;
+}
+
+.location-about h2,
+.location-about p {
+    padding-bottom: 1rem
+}
+
+.locations-about h3 {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    color: var(--darkBlue);
+
+}
+
+.locations-about ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.locations-about li {
+    padding-bottom: 1rem;
+    text-decoration: none;
+    color: var(--pmBlack);
+    display: flex;
+    align-items: flex-start;
+}
+
+.locations-wrapper {
+    gap: var(--smallGap);
+}
+
+.locations-about li i {
+    color: var(--orange);
+    padding-right: 1.5rem;
+    margin-top: 3px;
+    font-size: 1rem;
+    /* justerer ikonet så det flugter med første tekstlinje */
+    flex-shrink: 0;
+    /* forhindrer ikonet i at krympe */
+}
+
+.locations-about li a {
+    text-decoration: none;
+    color: var(--pmBlack);
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+.locations-about li span {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+
+}
+
+/* FAQ */
+.faq-section {
+    padding: var(--smallGap) 0 var(--largeGap) 0;
+}
+
+.faq-section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.faq-item {
+    border-top: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--darkBlue);
+    border: none;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    font-weight: 500;
+    color: var(--pmWhite);
+    gap: 1rem;
+}
+
+.faq-question i {
+    color: var(--pmWhite);
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+    background-color: var(--darkBlue);
+    margin-bottom: 2px;
+}
+
+.faq-answer p {
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+    line-height: 150%;
+    color: var(--pmWhite);
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.faq-answer.open {
+    max-height: 300px;
+}
+
+
+/* Om os desktop */
+@media (min-width:768px) {
+    .hero-about {
+        margin-top: 0;
+        height: 400px;
+    }
+
+    .about-image {
+        height: 300px;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .about-section article h2 {
+        padding-top: var();
+    }
+
+    .locations-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-about h2 {
+        padding-top: var(--smallGap);
+    }
+
+    .intro-about .about-images {
+        height: 300px;
+    }
+
+    .about-images {
+        flex-direction: row;
+        gap: 0;
+        padding: var(--largeGap) 0 var(--smallGap) 0;
+    }
+
+}
+
+@media (min-width:1100px) {
+    .omos-main {
+        max-width: 1200px;
+    }
+
+    .hero-about {
+        height: 500px;
+    }
+
+    .intro-about {
+        flex-direction: row;
+        height: auto;
+        gap: var(--smallGap);
+        margin: var(--smallGap) var(--largeGap);
+        align-items: stretch;
+    }
+
+    .intro-about .about-image {
+        order: 1;
+        width: 50%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .intro-about h2:first-child {
+        padding-top: 0;
+    }
+
+    .intro-about h2 {
+        padding-top: var(--largeGap);
+    }
+
+    .intro-about-text {
+        order: 2;
+        flex: 1;
+    }
+
+    /* Familierestaurant og lokationer ved siden af hinanden */
+    .about-section {
+        padding: 0;
+        padding-left: var(--smallGap);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--smallGap);
+        margin: 0 var(--largeGap);
+    }
+
+    .about-section h2 {
+        padding-top: 0;
+    }
+
+    .about-image {
+        display: flex;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    /* FAQ på desktop */
+    .faq-wrapper {
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    .faq-answer.open {
+        max-width: 800px;
+    }
+
+    .faq-item {
+        border-top: none;
+    }
+
+}
+
 
 /* FREYA start her */
 
@@ -468,9 +1429,6 @@ h6 {
     color: var(--pmWhite);
     border-color: var(--orange);
 }
-
-
-
 
 .menuAfsnit {
     padding-top: 4rem;
@@ -699,754 +1657,6 @@ h6 {
     }
 }
 
-.reviews-track-inner {
-    display: flex;
-    transition: transform 0.4s ease;
-}
-
-.review-card {
-    background-color: var(--darkBlue);
-    color: var(--pmWhite);
-    border-radius: 0;
-    padding: 2rem;
-    max-width: 300px;
-    margin-inline: auto;
-    box-sizing: border-box;
-    padding-bottom: 0;
-    height: 350px;
-}
-
-.review-card .stars {
-    color: var(--pmWhite);
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-}
-
-.review-date {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    margin: 0.5rem 0;
-}
-
-.review-card h3 {
-    color: var(--pmWhite);
-    margin: 1rem 0 0.5rem 0;
-}
-
-.review-card p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    line-height: 150%;
-}
-
-.reviewer {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    padding-bottom: var(--smallGap);
-}
-
-.slider-btn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--darkBlue);
-    padding: 0 0.5rem;
-}
-
-/* Forside - desktop */
-@media (min-width: 768px) {
-
-    /* Hero sektionen */
-    .hero {
-        height: 450px;
-        margin-top: 60px;
-        margin: 0;
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* Intro sektion */
-    .intro-forside p {
-        column-count: 2;
-        /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
-        column-gap: var(--largeGap);
-        padding: var(--smallGap) var(--largeGap) 3rem var(--largeGap);
-    }
-
-    .intro-forside h2 {
-        padding-left: var(--largeGap);
-        padding-top: var(--smallGap);
-
-    }
-
-    /* Focused entry sektioner */
-    .entry-points-forside {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--smallGap);
-        align-items: stretch;
-        padding: 0 var(--largeGap) var(--smallGap);
-        grid-template-rows: repeat(2, 300px);
-        padding-top: 1rem;
-    }
-
-    .entry-point-forside a {
-        margin-top: auto;
-    }
-
-    .entry-point-forside {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 0;
-    }
-
-    .entry-img {
-        height: 300px;
-    }
-
-    #stekas-entry-img {
-        width: 100%;
-        height: 100%;
-        min-height: 250px;
-        object-fit: cover;
-        padding: 0;
-    }
-
-    #menukort-heading {
-        padding: 0;
-        padding-bottom: var(--smallGap);
-    }
-
-    /* Hvorfor vælge highway - sektion */
-    .choosing-section {
-        padding: var(--largeGap) var(--largeGap) var(--smallGap) var(--largeGap);
-    }
-
-    .images-bottom-front-page {
-        display: flex;
-        gap: 0;
-        height: 250px;
-        padding: 0;
-    }
-
-    .images-bottom-front-page img {
-        height: 100%;
-    }
-
-    /* Anmeldelser sektion */
-    .reviews-section h2 {
-        padding-top: 3rem;
-        padding-left: 0;
-    }
-
-    .reviews-section {
-        padding: 0 var(--largeGap);
-        padding-bottom: var(--largeGap);
-    }
-
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    #readMoreBtn {
-        display: none;
-    }
-}
-
-@media (min-width: 1100px) {
-    .forside-main {
-        max-width: 1200px;
-    }
-
-    /* opsætter focused entry sektionen op i et grid på desktop */
-    .entry-points-forside {
-        display: grid;
-        gap: var(--largeGap);
-        padding-top: var(--smallGap);
-    }
-
-    /* Hero sektion - desktop */
-    .hero {
-        margin-top: 60px;
-        margin: 0;
-        height: 500px;
-        width: 100%;
-        background-position: center;
-        background-size: cover;
-    }
-
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    .intro-forside {
-        text-align: start;
-    }
-
-    .intro-forside p {
-        margin: 0;
-        text-align: start;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-rule: 2px solid var(--darkBlue);
-    }
-
-    #readMoreBtn {
-        display: none;
-    }
-
-    /* Hvorfor vælge highway */
-    .pick-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: var(--largeGap);
-        padding-top: var(--smallGap);
-    }
-
-    /* Billeder i bunden af forsiden */
-    .images-bottom-front-page img {
-        height: 100%;
-    }
-
-    .images-bottom-front-page {
-        width: 100%;
-        height: 300px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Anmeldelser sektionen */
-    .reviews-section {
-        padding-left: var(--largeGap);
-    }
-
-    .reviews-section h2 {
-        padding-top: var(--largeGap);
-    }
-
-    .slider-btn {
-        display: none;
-    }
-
-    .reviews-slider {
-        display: block;
-    }
-
-    .reviews-track {
-        overflow: visible;
-        width: 100%;
-        display: flex;
-        gap: var(--smallGap);
-    }
-
-    .review-card {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-    }
-
-    .reviewer {
-        margin-top: 0;
-        padding-top: var(--smallGap);
-    }
-
-}
-
-/* Job - mobile */
-/* Hero område */
-.hero-job {
-    height: 250px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.hero-job-heading {
-    color: white;
-}
-
-.job-text {
-    padding: var(--smallGap) var(--smallGap) 0 var(--smallGap);
-    font-family: "Roboto", sans-serif;
-    line-height: 150%;
-    font-size: small;
-}
-
-.job-text h2 {
-    padding-bottom: var(--smallGap);
-}
-
-.job-img img {
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    padding-top: var(--smallGap);
-    padding-bottom: var(--largeGap);
-    width: 100%;
-}
-
-.offer-job h3 {
-    padding-bottom: 1rem;
-}
-
-.offer-job ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-        padding-bottom: 1rem;
-    }
-}
-
-.offer-job li i {
-    color: var(--orange);
-    font-size: 1rem;
-}
-
-.offer-job li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.job-text p span {
-    display: block;
-    margin-top: 1.5rem;
-    margin-bottom: var(--smallGap);
-}
-
-/* Job - desktop */
-@media (min-width: 768px) {
-
-    .hero-job {
-        margin-top: 0;
-        height: 400px;
-        width: 100%;
-    }
-
-    .job-intro {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        padding: var(--largeGap) var(--smallGap) 0 var(--smallGap);
-        margin-bottom: var(--largeGap);
-        padding-bottom: var(--smallGap);
-    }
-
-    .job-img {
-        order: -1;
-    }
-
-    .job-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        padding-bottom: 0;
-    }
-
-    .job-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .job-text h2 {
-        font-size: x-large;
-    }
-
-    .job-text p {
-        font-size: small;
-        line-height: 150%;
-    }
-
-    .job-text a {
-        margin-top: auto;
-        align-self: flex-end;
-    }
-
-    .job-text p span {
-        display: block;
-        margin-top: 1.5rem;
-        margin-bottom: var(--smallGap);
-    }
-
-    .offer-job {
-        padding-top: var(--smallGap);
-        padding-bottom: var(--smallGap);
-    }
-
-    .offer-job h3 {
-        padding-bottom: 1rem;
-        font-size: large;
-    }
-
-    .offer-job ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            padding-bottom: 1.5rem;
-            font-size: small;
-            line-height: 150%;
-        }
-    }
-}
-
-@media (min-width: 1100px) {
-
-    .hero-job {
-        height: 500px;
-    }
-
-    .job-main {
-        max-width: 1200px;
-    }
-
-    .job-intro {
-        padding: var(--largeGap) var(--largeGap) 0 var(--largeGap);
-    }
-}
-
-/* Om os - mobile */
-/* Hero sektion */
-.hero-about {
-    height: 250px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/terrasse.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.hero-about-heading {
-    color: var(--pmWhite);
-    padding: var(--smallGap);
-}
-
-.intro-about {
-    display: flex;
-    flex-direction: column;
-    padding: var(--smallGap);
-}
-
-.intro-about .about-images {
-    order: 2;
-}
-
-.intro-about-text {
-    order: 1;
-}
-
-.about-images img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    object-position: center 30%;
-}
-
-.about-images {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.intro-about {
-    padding: var(--smallGap);
-}
-
-.intro-about h2 {
-    padding-bottom: 1rem;
-}
-
-.intro-about p {
-    line-height: 150%;
-    font-size: small;
-    font-family: "Roboto", sans-serif;
-    padding-bottom: var(--smallGap);
-}
-
-/* Midter indholdet på om os side */
-
-.about-image {
-    order: 3;
-    height: 250px;
-    object-fit: cover;
-    object-position: center 40%;
-}
-
-.about-section {
-    padding: 0 var(--smallGap) 1rem var(--smallGap);
-}
-
-.about-section article h2 {
-    padding-bottom: 1rem;
-}
-
-.about-section article p {
-    font-size: small;
-    font-family: "Roboto", sans-serif;
-    padding-bottom: 1rem;
-}
-
-/* Lokation sektionen */
-.location-about {
-    padding-top: 0;
-}
-
-.location-about h2 {
-    padding-top: 1rem;
-}
-
-.location-about h2,
-.location-about p {
-    padding-bottom: 1rem
-}
-
-.locations-about h3 {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    color: var(--darkBlue);
-
-}
-
-.locations-about ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.locations-about li {
-    padding-bottom: 1rem;
-    text-decoration: none;
-    color: var(--pmBlack);
-    display: flex;
-    align-items: flex-start;
-}
-
-.locations-wrapper {
-    gap: var(--smallGap);
-}
-
-.locations-about li i {
-    color: var(--orange);
-    padding-right: 1.5rem;
-    margin-top: 3px;
-    font-size: 1rem;
-    /* justerer ikonet så det flugter med første tekstlinje */
-    flex-shrink: 0;
-    /* forhindrer ikonet i at krympe */
-}
-
-.locations-about li a {
-    text-decoration: none;
-    color: var(--pmBlack);
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-}
-
-.locations-about li span {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-
-}
-
-/* FAQ */
-.faq-section {
-    padding: var(--smallGap) var(--smallGap) var(--largeGap) var(--smallGap);
-}
-
-.faq-section h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    text-align: center;
-    margin-bottom: var(--smallGap);
-}
-
-.faq-item {
-    border-top: 1px solid #ccc;
-    margin-bottom: 0.5rem;
-}
-
-.faq-question {
-    width: 100%;
-    background-color: var(--darkBlue);
-    border: none;
-    text-align: left;
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    font-weight: 500;
-    color: var(--pmWhite);
-    gap: 1rem;
-}
-
-.faq-question i {
-    color: var(--pmWhite);
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.faq-question[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-    background-color: var(--darkBlue);
-    margin-bottom: 2px;
-}
-
-.faq-answer p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    line-height: 150%;
-    color: var(--pmWhite);
-    padding: 1rem 1.25rem 1.25rem;
-}
-
-.faq-answer.open {
-    max-height: 300px;
-}
-
-
-/* Om os desktop */
-@media (min-width:768px) {
-    .hero-about {
-        margin-top: 0;
-        height: 400px;
-    }
-
-    .about-image {
-        height: 300px;
-        object-fit: cover;
-        object-position: center 30%;
-    }
-
-    .about-section article h2 {
-        padding-top: var();
-    }
-
-    .locations-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .intro-about h2 {
-        padding-top: var(--smallGap);
-    }
-
-    .intro-about .about-images {
-        height: 300px;
-    }
-
-    .about-images {
-        flex-direction: row;
-        gap: 0;
-        padding: var(--largeGap) 0 var(--smallGap) 0;
-    }
-
-}
-
-@media (min-width:1100px) {
-    .omos-main {
-        max-width: 1200px;
-    }
-
-    .hero-about {
-        height: 500px;
-    }
-
-    .intro-about {
-        flex-direction: row;
-        height: auto;
-        gap: var(--smallGap);
-        margin: var(--smallGap) var(--largeGap);
-        align-items: stretch;
-    }
-
-    .intro-about .about-image {
-        order: 1;
-        width: 50%;
-        height: 400px;
-        object-fit: cover;
-    }
-
-    .intro-about h2:first-child {
-        padding-top: 0;
-    }
-
-    .intro-about h2 {
-        padding-top: var(--largeGap);
-    }
-
-    .intro-about-text {
-        order: 2;
-        flex: 1;
-    }
-
-    /* Familierestaurant og lokationer ved siden af hinanden */
-    .about-section {
-        padding: 0;
-        padding-left: var(--smallGap);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--smallGap);
-        margin: 0 var(--largeGap);
-    }
-
-    .about-section h2 {
-        padding-top: 0;
-    }
-
-    .about-image {
-        display: flex;
-    }
-
-    .about-image img {
-        height: 300px;
-    }
-
-    /* FAQ på desktop */
-    .faq-wrapper {
-        margin: 0 auto;
-        max-width: 800px;
-    }
-
-    .faq-answer.open {
-        max-width: 800px;
-    }
-
-    .faq-item {
-        border-top: none;
-    }
-
-}
-
-
 /* FREYA start her */
 /* Selskaber side */
 /* Hero sektion */
@@ -1460,7 +1670,6 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .hero-section-selskaber h1 {
@@ -1509,7 +1718,6 @@ h6 {
 /* buffet muligheder */
 .buffet-udvalg {
     padding: var(--smallGap) 0;
-    margin: var(--smallGap) var(--smallGap);
 }
 
 .buffet-udvalg h2 {
