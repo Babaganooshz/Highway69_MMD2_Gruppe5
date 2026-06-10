@@ -703,6 +703,7 @@ h6 {
 
 /* Responsivt design */
 @media (min-width: 768px) {
+
     .menuIntro,
     .menuAfsnit,
     .drikkevarer {
@@ -758,9 +759,11 @@ h6 {
 
 @media (min-width: 1200px) {
 
-  .menu-section h2 {
-    font-size: 36px;
-  }
+    .menu-section h2 {
+        font-size: 36px;
+    }
+}
+
 .reviews-track-inner {
     display: flex;
     transition: transform 0.4s ease;
