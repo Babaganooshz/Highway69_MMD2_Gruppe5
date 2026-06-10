@@ -81,6 +81,9 @@ h6 {
     min-width: 140px;
 }
 
+.links .active {
+    color: var(--darkBlue);
+}
 
 /* NAV - MOBIL */
 /* Skjuler dekstop navbaren på mobil versionen */
