@@ -540,6 +540,227 @@ h6 {
     width: 100%;
 }
 
+
+.menuAfsnit {
+    padding-top: 4rem;
+}
+
+.menuOverskrift {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-bottom: 1px solid var(--darkBlue);
+    padding-bottom: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.menuOverskrift i {
+    color: var(--orange);
+    font-size: 1.5rem;
+}
+
+.menuOverskrift h2 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+.menuGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.menuRet {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.menuRetTop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.menuRet h3 {
+    color: var(--darkBlue);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.menuInfo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.menuInfo i {
+    color: var(--orange);
+}
+
+.menuPris {
+    color: var(--darkBlue);
+    font-weight: 500;
+}
+
+.menuRet p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    line-height: 150%;
+}
+
+.tilbehor {
+    color: var(--darkBlue);
+    font-weight: 600;
+}
+
+
+/* =========================
+   DRIKKEVARER
+
+.drikkevarer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.drikkevarer h2 {
+    text-align: center;
+}
+
+.drikkeKnapper {
+    margin-bottom: 3.5rem;
+}
+
+.drikkeGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.drikkeKategoriTitel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--darkBlue);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.drikkeKategoriTitel i {
+    color: var(--orange);
+    font-size: 1.2rem;
+}
+
+.drikkeKategoriTitel h3 {
+    color: var(--pmBlack);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.drikkeProdukt {
+    margin-bottom: 1.8rem;
+}
+
+.drikkeProdukt h4 {
+    color: var(--pmBlack);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.drikkeLinje {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.3rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+}
+
+.drikkeLinje i {
+    color: var(--orange);
+}
+
+.drikkeBeskrivelse {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.85rem;
+    line-height: 150%;
+}
+
+.tomBesked {
+    color: var(--darkBlue);
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+/* Menu slut */
+
+/* Responsivt design */
+@media (min-width: 768px) {
+    .menuIntro,
+    .menuAfsnit,
+    .drikkevarer {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: var(--largeGap);
+    }
+
+    .menuIntro {
+        padding-top: 5rem;
+    }
+
+    .menuIntro h1,
+    .drikkevarer h2 {
+        font-size: 3.2rem;
+    }
+
+    .menuKnapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .menuKnap {
+        min-width: 110px;
+    }
+
+    .menuAfsnit {
+        padding-top: 7rem;
+    }
+
+    .menuOverskrift h2 {
+        font-size: 2.8rem;
+    }
+
+    .menuGrid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        row-gap: 2.5rem;
+    }
+
+    .drikkevarer {
+        padding-top: 8rem;
+    }
+
+    .drikkeGrid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        row-gap: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+
+  .menu-section h2 {
+    font-size: 36px;
+  }
 .reviews-track-inner {
     display: flex;
     transition: transform 0.4s ease;
@@ -1946,5 +2167,6 @@ h6 {
         font-size: 72px;
     }
 }
+
 
 /* ANTON start her */
