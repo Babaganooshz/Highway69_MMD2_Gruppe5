@@ -379,7 +379,7 @@ h6 {
   max-width: none;
 
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center center;
 
   display: block;
   z-index: 0;
@@ -409,12 +409,13 @@ h6 {
 }
 
 .hero-content-menukort h1 {
-  color: white;
+  color: var(--pmWhite);
   font-size: 36px;
   font-weight: 800;
   text-transform: uppercase;
   margin: 0;
 }
+
 /* Menukort Hero Slut */
 
 /* Menu start */
@@ -464,9 +465,7 @@ h6 {
 }
 
 
-/* =========================
-   MAD SECTION
-========================= */
+
 
 .menuAfsnit {
     padding-top: 4rem;
@@ -545,9 +544,7 @@ h6 {
 }
 
 
-/* =========================
-   DRIKKEVARER
-========================= */
+
 
 .drikkevarer {
     padding-top: 5rem;
@@ -682,6 +679,10 @@ h6 {
         column-gap: 5rem;
         row-gap: 4rem;
     }
+    .hero-menukort {
+    height: 550px;
+    max-height: 550px;
+  }
 }
 
 @media (min-width: 1200px) {
