@@ -1,5 +1,6 @@
 /* Forside */
 // Hero slideshow
+// Array med stier til alle hero-billeder der skal vises i slideshowet
 const heroImages = [
     './assets/img/baren.webp',
     './assets/img/cheeseburger.webp',
@@ -9,18 +10,24 @@ const heroImages = [
     './assets/img/terrasse.webp'
 ];
 
+// Finder hero-billedet i DOM'en og sætter startindekset til det første billede
 const heroImg = document.getElementById('hero-slide-img');
 let heroIndex = 0;
 
+// Skifter automatisk billede hvert 4. sekund
 setInterval(() => {
+    // Fader billedet ud
     heroImg.style.opacity = '0';
 
+    // Venter 300ms på at fade-animationen er gennemført, hvorefter der skiftes til det næste billede
     setTimeout(() => {
+        // Går til næste billede - starter forfra når vi når slutningen af arrayet
         heroIndex = (heroIndex + 1) % heroImages.length;
         heroImg.src = heroImages[heroIndex];
+        // Fader det nye billede ind
         heroImg.style.opacity = '1';
-    }, 800);
-}, 5000);
+    }, 300); // Antal milisekunder billedet bruger på at udføre sin animation
+}, 4000); // Antal milisekunder mellem hvert billede
 
 
 //Pilen fader ud idet man scroller ned på siden
@@ -52,13 +59,16 @@ heroObserver.observe(hero);
 // Finder alle "læs mere" knapper og skjult tekst
 document.querySelectorAll(".read-more-btn").forEach(btn => {
     btn.addEventListener("click", function () {
+        // Funktionen gør ingenting på skærme bredere end 768px eftersom den skjulte tekst altid er synlig på desktop
         if (window.innerWidth >= 769) return;
 
         // Finder den nærmeste skjulte tekst i samme artikel
         const moreText = this.closest("p, article").querySelector(".more-text");
 
+        // Skifter mellem at vise og skjule teksten
         moreText.classList.toggle("visible");
 
+        // Opdaterer knappens tekst afhængigt af om teksten er synlig eller ej
         if (moreText.classList.contains("visible")) {
             this.textContent = "[Luk]";
         } else {
