@@ -12,6 +12,21 @@ html {
     background-color: var(--pmWhite);
 }
 
+/* Begrænser indholdsbredden og centrerer main på siden */
+main {
+    width: 100%;
+    padding-inline: var(--smallGap);
+}
+
+/* Håndterer layout på større skærmstørrelser */
+@media (min-width: 769px) {
+    main {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: var(--largeGap);
+    }
+}
+
 :root {
     /* Farver */
     --orange: #EF3D04;
@@ -48,7 +63,7 @@ h6 {
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.1s ease;
     text-decoration: none;
-    font-size: small;
+    font-size: 15px;
 }
 
 .btn:hover {
@@ -57,9 +72,15 @@ h6 {
 }
 
 .btn-mobile {
-    padding: 8px 14px;
-    margin-top: var(--smallGap);
+    padding: 14px 24px;
+    width: 50%;
 }
+
+.btn-desktop {
+    padding: 13px 28px;
+    min-width: 140px;
+}
+
 
 /* NAV - MOBIL */
 /* Skjuler dekstop navbaren på mobil versionen */
@@ -85,11 +106,6 @@ h6 {
     height: 40px;
 }
 
-.nav-mobile a {
-    display: flex;
-    align-items: center;
-}
-
 .burgerMenuIcon {
     display: flex;
     cursor: pointer;
@@ -102,6 +118,7 @@ h6 {
 
 .nav-list {
     list-style: none;
+    background: var(--darkBlue);
     padding: 0;
     margin: 0;
 }
@@ -117,20 +134,14 @@ h6 {
 
 .navDropdown {
     position: fixed;
-    background-color: var(--darkBlue);
     top: 60px;
     right: 0;
     width: 60%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     transform: translateX(100%);
     transition: transform 0.4s ease;
-}
 
-@media (min-width:659px) {
-    .navDropdown {
-        width: 50%;
-    }
 }
 
 .navDropdown.show {
@@ -149,11 +160,6 @@ h6 {
 
     .nav-mobile {
         display: none;
-    }
-
-    .nav-desktop a {
-        display: flex;
-        align-items: center;
     }
 
     .nav-desktop {
@@ -191,14 +197,6 @@ h6 {
     }
 }
 
-/* Gør det tydeligt for brugeren, hvilken side de er på  */
-.nav-list .active {
-    color: var(--orange);
-}
-
-.nav-list-desktop .active {
-    color: var(--darkBlue);
-}
 
 /* FOOTER MOBILE */
 .footer {
@@ -228,13 +226,14 @@ h6 {
 
 .map-iframe {
     width: 100%;
+    height: 300px;
     display: block;
 }
 
 #facebookIcon,
 #tripadvisorIcon {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
 
 }
 
@@ -256,7 +255,7 @@ h6 {
 }
 
 /* FOOTER DESKTOP */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .footer-container {
         display: flex;
         width: 100%;
@@ -264,12 +263,10 @@ h6 {
         justify-content: center;
         align-items: flex-start;
         margin: 0 auto;
-        gap: var(--largeGap);
-        flex-wrap: wrap;
     }
 
     .footer-section {
-        padding-right: var(--smallGap);
+        padding-top: var(--largeGap);
     }
 
     .footer-section h3 {
@@ -297,107 +294,21 @@ h6 {
     }
 }
 
-@media (min-width:900px) {
-    .footer-container {
-        flex-wrap: nowrap;
-    }
-
-    .footer-section h3 {
-        padding-bottom: 1.5rem;
-    }
-
-    .map-iframe {
-        height: 200px;
-    }
-}
-
 /* FREJA start her */
 /* FORSIDE */
-/* Hero karrusel */
-.hero {
-    margin: 0px;
-    height: 250px;
+
+.btn-desktop {
+    display: none;
+}
+
+.hero-section-forside {
     width: 100%;
+    display: block;
+    height: 200px;
     margin-top: 60px;
-    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    animation: slider 15s ease-in infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    object-fit: cover;
-}
-
-.hero h1 {
-    color: var(--pmWhite);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-#forside-intro {
-    scroll-margin-top: 90px;
-}
-
-#hero-arrow {
-    color: var(--pmWhite);
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    animation-name: jump;
-    animation-duration: 1500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    transition: opacity 1000ms;
-}
-
-/* Animation på pilen*/
-@keyframes jump {
-    0% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-/* Slideshow til forsiden. For hvert breakpoint bliver et nyt billede vist */
-@keyframes slider {
-    0% {
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-            url('../img/baren.webp');
-    }
-
-    20% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
-
-    }
-
-    40% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
-    }
-
-    60% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
-    }
-
-    80% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
-    }
-
-    100% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak.webp');
-    }
 }
 
 /* Uddybende intro tekst på forsiden */
@@ -423,13 +334,11 @@ h6 {
 /* Intro sektionen på forsiden */
 .intro-forside h2 {
     margin-top: var(--smallGap);
-    line-height: 150%;
-    padding-left: var(--smallGap);
 }
 
 .intro-forside p {
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap);
+    padding: var(--smallGap) 0 var(--smallGap) 0;
     line-height: 150%;
     font-size: small;
 }
@@ -438,65 +347,59 @@ h6 {
     color: var(--orange);
 }
 
-/* Focused entry point sektionen */
-
-.entry-point-forside {
-    padding: var(--smallGap);
-    padding-top: 0;
-}
-
-.entry-points-forside {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.entry-point-forside h2 {
-    padding: 0 0 var(--smallGap) 0;
-}
-
-#menukort-heading {
-    padding-top: var(--smallGap);
-}
-
-.entry-point-forside h2:last-child {
-    padding-top: var(--smallGap);
-}
-
-.entry-point-forside p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-}
-
-.entry-img {
+.intro-forside img {
     width: 100%;
-    height: 200px;
+    height: 170px;
     object-fit: cover;
-
 }
 
-#stekas-entry-img {
-    padding: 0 var(--smallGap) var(--smallGap) var(--smallGap);
-    order: -1;
+/* FREYA start her */
 
+/* NICKLAS start her */
+/* Menukort Hero Start*/
+.hero-menukort {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  max-width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.hero-img-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-/* Hvorfor vælge highway sektionen */
-.choosing-section {
-    padding: var(--smallGap);
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center center;
+
+  display: block;
+  z-index: 0;
 }
 
+.hero-overlay-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.pick-list {
-    list-style: none;
-    padding-left: 0;
-}
+  width: 100%;
+  height: 100%;
 
-.point img {
-    height: auto;
-    width: 1.5rem;
-    min-width: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.40) 99.99%,
+    rgba(102, 102, 102, 0.40) 100%
+  );
+
+  z-index: 1;
 }
 
 .hero-content-menukort {
@@ -506,12 +409,13 @@ h6 {
 }
 
 .hero-content-menukort h1 {
-  color: white;
+  color: var(--pmWhite);
   font-size: 36px;
   font-weight: 800;
   text-transform: uppercase;
   margin: 0;
 }
+
 /* Menukort Hero Slut */
 
 /* Menu start */
@@ -520,35 +424,48 @@ h6 {
 .menuAfsnit,
 .drikkevarer {
     width: 100%;
-    object-fit: cover;
-    height: 200px;
+    padding-inline: var(--smallGap);
 }
 
-/* Anmeldelse slider */
-.reviews-section h2 {
-    padding: var(--smallGap);
+.menuIntro {
+    padding-top: 4rem;
+    text-align: center;
 }
 
-
-.reviews-section {
-    padding-bottom: var(--largeGap);
+.menuIntro h1,
+.drikkevarer h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
 }
 
-.reviews-slider {
-    display: flex;
-    align-items: center;
+.menuKnapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-.reviews-track {
-    overflow: hidden;
-    width: 100%;
+.menuKnap {
+    background-color: var(--pmWhite);
+    color: var(--darkBlue);
+    border: 1px solid var(--darkBlue);
+    min-height: 38px;
+    padding: 0.5rem 1rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.menuKnap:hover,
+.menuKnap.active {
+    background-color: var(--orange);
+    color: var(--pmWhite);
+    border-color: var(--orange);
 }
 
 
-/* =========================
-   MAD SECTION
-========================= */
+
 
 .menuAfsnit {
     padding-top: 4rem;
@@ -627,9 +544,7 @@ h6 {
 }
 
 
-/* =========================
-   DRIKKEVARER
-========================= */
+
 
 .drikkevarer {
     padding-top: 5rem;
@@ -775,1411 +690,6 @@ h6 {
   .menu-section h2 {
     font-size: 36px;
   }
-.reviews-track-inner {
-    display: flex;
-    transition: transform 0.4s ease;
-}
-
-.review-card {
-    background-color: var(--darkBlue);
-    color: var(--pmWhite);
-    border-radius: 0;
-    padding: 2rem;
-    max-width: 300px;
-    margin-inline: auto;
-    box-sizing: border-box;
-    padding-bottom: 0;
-    height: 350px;
-}
-
-.review-card .stars {
-    color: var(--pmWhite);
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-}
-
-.review-date {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    margin: 0.5rem 0;
-}
-
-.review-card h3 {
-    color: var(--pmWhite);
-    margin: 1rem 0 0.5rem 0;
-}
-
-.review-card p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    line-height: 150%;
-}
-
-.reviewer {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    padding-bottom: var(--smallGap);
-}
-
-.slider-btn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--darkBlue);
-    padding: 0 0.5rem;
-}
-
-/* Forside - desktop */
-@media (min-width: 768px) {
-
-    /* Hero sektionen */
-    .hero {
-        height: 450px;
-        margin-top: 60px;
-        margin: 0;
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* Intro sektion */
-    .intro-forside p {
-        column-count: 2;
-        /* Deler min  p op i to kolonner: https://www.w3schools.com/cssref/css3_pr_column-count.php*/
-        column-gap: var(--largeGap);
-        padding: var(--smallGap) var(--largeGap) 3rem var(--largeGap);
-    }
-
-    .intro-forside h2 {
-        padding-left: var(--largeGap);
-        padding-top: var(--smallGap);
-
-    }
-
-    /* Focused entry sektioner */
-    .entry-points-forside {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--smallGap);
-        align-items: stretch;
-        padding: 0 var(--largeGap) var(--smallGap);
-        grid-template-rows: repeat(2, 300px);
-        padding-top: 1rem;
-    }
-
-    .entry-point-forside a {
-        margin-top: auto;
-    }
-
-    .entry-point-forside {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 0;
-    }
-
-    .entry-img {
-        height: 300px;
-    }
-
-    #stekas-entry-img {
-        width: 100%;
-        height: 100%;
-        min-height: 250px;
-        object-fit: cover;
-        padding: 0;
-    }
-
-    #menukort-heading {
-        padding: 0;
-        padding-bottom: var(--smallGap);
-    }
-
-    /* Hvorfor vælge highway - sektion */
-    .choosing-section {
-        padding: var(--largeGap) var(--largeGap) var(--smallGap) var(--largeGap);
-    }
-
-    .images-bottom-front-page {
-        display: flex;
-        gap: 0;
-        height: 250px;
-        padding: 0;
-    }
-
-    .images-bottom-front-page img {
-        height: 100%;
-    }
-
-    /* Anmeldelser sektion */
-    .reviews-section h2 {
-        padding-top: 3rem;
-        padding-left: 0;
-    }
-
-    .reviews-section {
-        padding: 0 var(--largeGap);
-        padding-bottom: var(--largeGap);
-    }
-
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    #readMoreBtn {
-        display: none;
-    }
-}
-
-@media (min-width: 1100px) {
-    .forside-main {
-        max-width: 1200px;
-    }
-
-    /* opsætter focused entry sektionen op i et grid på desktop */
-    .entry-points-forside {
-        display: grid;
-        gap: var(--largeGap);
-        padding-top: var(--smallGap);
-    }
-
-    /* Hero sektion - desktop */
-    .hero {
-        margin-top: 60px;
-        margin: 0;
-        height: 500px;
-        width: 100%;
-        background-position: center;
-        background-size: cover;
-    }
-
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    .intro-forside {
-        text-align: start;
-    }
-
-    .intro-forside p {
-        margin: 0;
-        text-align: start;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-rule: 2px solid var(--darkBlue);
-    }
-
-    #readMoreBtn {
-        display: none;
-    }
-
-    /* Hvorfor vælge highway */
-    .pick-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: var(--largeGap);
-        padding-top: var(--smallGap);
-    }
-
-    /* Billeder i bunden af forsiden */
-    .images-bottom-front-page img {
-        height: 100%;
-    }
-
-    .images-bottom-front-page {
-        width: 100%;
-        height: 300px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Anmeldelser sektionen */
-    .reviews-section {
-        padding-left: var(--largeGap);
-    }
-
-    .reviews-section h2 {
-        padding-top: var(--largeGap);
-    }
-
-    .slider-btn {
-        display: none;
-    }
-
-    .reviews-slider {
-        display: block;
-    }
-
-    .reviews-track {
-        overflow: visible;
-        width: 100%;
-        display: flex;
-        gap: var(--smallGap);
-    }
-
-    .review-card {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-    }
-
-    .reviewer {
-        margin-top: 0;
-        padding-top: var(--smallGap);
-    }
-
-}
-
-/* Job - mobile */
-/* Hero område */
-.hero-job {
-    height: 250px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.hero-job-heading {
-    color: white;
-}
-
-.job-text {
-    padding: var(--smallGap) var(--smallGap) 0 var(--smallGap);
-    font-family: "Roboto", sans-serif;
-    line-height: 150%;
-    font-size: small;
-}
-
-.job-text h2 {
-    padding-bottom: var(--smallGap);
-}
-
-.job-img img {
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    padding-top: var(--smallGap);
-    padding-bottom: var(--largeGap);
-    width: 100%;
-}
-
-.offer-job h3 {
-    padding-bottom: 1rem;
-}
-
-.offer-job ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-        padding-bottom: 1rem;
-    }
-}
-
-.offer-job li i {
-    color: var(--orange);
-    font-size: 1rem;
-}
-
-.offer-job li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.job-text p span {
-    display: block;
-    margin-top: 1.5rem;
-    margin-bottom: var(--smallGap);
-}
-
-/* Job - desktop */
-@media (min-width: 768px) {
-
-    .hero-job {
-        margin-top: 0;
-        height: 400px;
-        width: 100%;
-    }
-
-    .job-intro {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        padding: var(--largeGap) var(--smallGap) 0 var(--smallGap);
-        margin-bottom: var(--largeGap);
-        padding-bottom: var(--smallGap);
-    }
-
-    .job-img {
-        order: -1;
-    }
-
-    .job-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        padding-bottom: 0;
-    }
-
-    .job-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .job-text h2 {
-        font-size: x-large;
-    }
-
-    .job-text p {
-        font-size: small;
-        line-height: 150%;
-    }
-
-    .job-text a {
-        margin-top: auto;
-        align-self: flex-end;
-    }
-
-    .job-text p span {
-        display: block;
-        margin-top: 1.5rem;
-        margin-bottom: var(--smallGap);
-    }
-
-    .offer-job {
-        padding-top: var(--smallGap);
-        padding-bottom: var(--smallGap);
-    }
-
-    .offer-job h3 {
-        padding-bottom: 1rem;
-        font-size: large;
-    }
-
-    .offer-job ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            padding-bottom: 1.5rem;
-            font-size: small;
-            line-height: 150%;
-        }
-    }
-
-    .btn-mobile {
-        font-size: medium;
-    }
-}
-
-@media (min-width: 1100px) {
-
-    .hero-job {
-        height: 500px;
-    }
-
-    .job-main {
-        max-width: 1200px;
-    }
-
-    .job-intro {
-        padding: var(--largeGap) var(--largeGap) 0 var(--largeGap);
-    }
-}
-
-/* Om os - mobile */
-/* Hero sektion */
-.hero-about {
-    height: 250px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/terrasse.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.hero-about-heading {
-    color: var(--pmWhite);
-    padding: var(--smallGap);
-}
-
-.intro-about {
-    display: flex;
-    flex-direction: column;
-    padding: var(--smallGap);
-}
-
-.intro-about .about-images {
-    order: 2;
-}
-
-.intro-about-text {
-    order: 1;
-}
-
-.about-images img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    object-position: center 30%;
-}
-
-.about-images {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.intro-about {
-    padding: var(--smallGap);
-}
-
-.intro-about h2 {
-    padding-bottom: 1rem;
-}
-
-.intro-about p {
-    line-height: 150%;
-    font-size: small;
-    font-family: "Roboto", sans-serif;
-    padding-bottom: var(--smallGap);
-}
-
-/* Midter indholdet på om os side */
-
-.about-image {
-    order: 3;
-    height: 250px;
-    object-fit: cover;
-    object-position: center 40%;
-}
-
-.about-section {
-    padding: 0 var(--smallGap) 1rem var(--smallGap);
-}
-
-.about-section article h2 {
-    padding-bottom: 1rem;
-}
-
-.about-section article p {
-    font-size: small;
-    font-family: "Roboto", sans-serif;
-    padding-bottom: 1rem;
-}
-
-/* Lokation sektionen */
-.location-about {
-    padding-top: 0;
-}
-
-.location-about h2 {
-    padding-top: 1rem;
-}
-
-.location-about h2,
-.location-about p {
-    padding-bottom: 1rem
-}
-
-.locations-about h3 {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    color: var(--darkBlue);
-
-}
-
-.locations-about ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.locations-about li {
-    padding-bottom: 1rem;
-    text-decoration: none;
-    color: var(--pmBlack);
-    display: flex;
-    align-items: flex-start;
-}
-
-.locations-wrapper {
-    gap: var(--smallGap);
-}
-
-.locations-about li i {
-    color: var(--orange);
-    padding-right: 1.5rem;
-    margin-top: 3px;
-    font-size: 1rem;
-    /* justerer ikonet så det flugter med første tekstlinje */
-    flex-shrink: 0;
-    /* forhindrer ikonet i at krympe */
-}
-
-.locations-about li a {
-    text-decoration: none;
-    color: var(--pmBlack);
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-}
-
-.locations-about li span {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-
-}
-
-/* FAQ */
-.faq-section {
-    padding: var(--smallGap) var(--smallGap) var(--largeGap) var(--smallGap);
-}
-
-.faq-section h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    text-align: center;
-    margin-bottom: var(--smallGap);
-}
-
-.faq-item {
-    border-top: 1px solid #ccc;
-    margin-bottom: 0.5rem;
-}
-
-.faq-question {
-    width: 100%;
-    background-color: var(--darkBlue);
-    border: none;
-    text-align: left;
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    font-weight: 500;
-    color: var(--pmWhite);
-    gap: 1rem;
-}
-
-.faq-question i {
-    color: var(--pmWhite);
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.faq-question[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-    background-color: var(--darkBlue);
-    margin-bottom: 2px;
-}
-
-.faq-answer p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    line-height: 150%;
-    color: var(--pmWhite);
-    padding: 1rem 1.25rem 1.25rem;
-}
-
-.faq-answer.open {
-    max-height: 300px;
-}
-
-
-/* Om os desktop */
-@media (min-width:768px) {
-    .hero-about {
-        margin-top: 0;
-        height: 400px;
-    }
-
-    .about-image {
-        height: 300px;
-        object-fit: cover;
-        object-position: center 30%;
-    }
-
-    .about-section article h2 {
-        padding-top: var();
-    }
-
-    .locations-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .intro-about h2 {
-        padding-top: var(--smallGap);
-    }
-
-    .intro-about .about-images {
-        height: 300px;
-    }
-
-    .about-images {
-        flex-direction: row;
-        gap: 0;
-        padding: var(--largeGap) 0 var(--smallGap) 0;
-    }
-
-}
-
-@media (min-width:1100px) {
-    .omos-main {
-        max-width: 1200px;
-    }
-
-    .hero-about {
-        height: 500px;
-    }
-
-    .intro-about {
-        flex-direction: row;
-        height: auto;
-        gap: var(--smallGap);
-        margin: var(--smallGap) var(--largeGap);
-        align-items: stretch;
-    }
-
-    .intro-about .about-image {
-        order: 1;
-        width: 50%;
-        height: 400px;
-        object-fit: cover;
-    }
-
-    .intro-about h2:first-child {
-        padding-top: 0;
-    }
-
-    .intro-about h2 {
-        padding-top: var(--largeGap);
-    }
-
-    .intro-about-text {
-        order: 2;
-        flex: 1;
-    }
-
-    /* Familierestaurant og lokationer ved siden af hinanden */
-    .about-section {
-        padding: 0;
-        padding-left: var(--smallGap);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--smallGap);
-        margin: 0 var(--largeGap);
-    }
-
-    .about-section h2 {
-        padding-top: 0;
-    }
-
-    .about-image {
-        display: flex;
-    }
-
-    .about-image img {
-        height: 300px;
-    }
-
-    /* FAQ på desktop */
-    .faq-wrapper {
-        margin: 0 auto;
-        max-width: 800px;
-    }
-
-    .faq-answer.open {
-        max-width: 800px;
-    }
-
-    .faq-item {
-        border-top: none;
-    }
-
-}
-
-
-/* FREYA start her */
-/* Selskaber side */
-/* Hero sektion */
-.hero-section-selskaber {
-    width: 100%;
-    height: 200px;
-    margin-top: 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/selskab.webp);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.hero-section-selskaber h1 {
-    color: var(--pmWhite);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-}
-
-/* Blå boks */
-.intro-selskaber {
-    background-color: var(--darkBlue);
-    padding: var(--smallGap);
-    margin-top: var(--smallGap);
-}
-
-.intro-selskaber h2 {
-    color: var(--pmWhite);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-}
-
-.intro-selskaber p {
-    color: var(--pmWhite);
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    line-height: 160%;
-    margin-bottom: var(--smallGap);
-}
-
-.intro-selskaber img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-.intro-selskaber-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* buffet muligheder */
-.buffet-udvalg {
-    padding: var(--smallGap) 0;
-}
-
-.buffet-udvalg h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.buffet-intro {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    line-height: 160%;
-    color: #333;
-    margin-bottom: 1rem;
-
-}
-
-.buffet-note {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.85rem;
-    color: #555;
-    margin-bottom: var(--smallGap);
-
-}
-
-.buffet-divider {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: var(--smallGap) 0;
-}
-
-.buffet-card-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.buffet-card-header h3 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-.buffet-price {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.buffet-card p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    line-height: 160%;
-    color: #333;
-    margin-bottom: 0.75rem;
-}
-
-.buffet-notice {
-    color: #555;
-    font-style: italic;
-}
-
-.buffet-section-title {
-    font-weight: 700 !important;
-    color: var(--darkBlue) !important;
-    margin-top: 0.5rem;
-}
-
-.buffet-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.buffet-card .btn {
-    align-self: flex-end;
-    padding: 13px 28px;
-    margin-top: var(--smallGap);
-}
-
-.selskaber-img-section {
-    width: 100%;
-    margin-top: var(--smallGap);
-}
-
-.selskaber-img-section img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-}
-
-/* FAQ */
-.faq-section {
-    padding: var(--smallGap) 0 var(--largeGap);
-}
-
-.faq-section h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: var(--smallGap);
-}
-
-.faq-item {
-    border-top: 1px solid #ccc;
-    margin-bottom: 1rem;
-}
-
-.faq-item:last-child {
-    border-bottom: 1px solid #ccc;
-}
-
-.faq-question {
-    width: 100%;
-    background-color: var(--darkBlue);
-    border: none;
-    text-align: left;
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--pmWhite);
-    gap: 1rem;
-    margin-bottom: 2px;
-}
-
-.faq-question i {
-    color: var(--pmWhite);
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.faq-question[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-    background-color: var(--darkBlue);
-    margin-bottom: 2px;
-}
-
-.faq-answer p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.9rem;
-    line-height: 160%;
-    color: var(--pmWhite);
-    padding: 1rem 1.25rem 1.25rem;
-}
-
-.faq-answer.open {
-    max-height: 300px;
-}
-
-/* desktop version - selskaber */
-@media (min-width: 769px) {
-
-
-
-    /* HERO */
-    .hero-section-selskaber {
-        height: 350px;
-        margin-top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
-
-    /* INTRO BLÅ BOKS */
-    .intro-selskaber {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: var(--smallGap);
-        margin-top: var(--smallGap);
-    }
-
-    .intro-selskaber img {
-        height: 260px;
-        object-fit: cover;
-        order: 0;
-    }
-
-    .intro-selskaber h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-
-
-    /* BUFFET  */
-    .buffet-cards-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--smallGap);
-        margin-top: var(--smallGap);
-    }
-
-    .buffet-card {
-        border: 1px solid #ccc;
-        padding: var(--smallGap);
-        display: flex;
-        flex-direction: column;
-    }
-
-    .buffet-divider {
-        display: none;
-    }
-
-    .buffet-intro,
-    .buffet-note {
-        max-width: 500px;
-        margin-inline: auto;
-    }
-
-    .buffet-cards-wrapper .buffet-card .btn {
-        margin-top: auto;
-        width: auto;
-        align-self: flex-end;
-        padding: 13px 28px;
-    }
-
-    /* Skubber knappen ned i bunden af kortet */
-    .buffet-card .btn {
-        margin-top: auto;
-        width: auto;
-        margin-top: var(--smallGap);
-    }
-
-    .buffet-udvalg h2 {
-        font-size: 2.2rem;
-    }
-
-    /* FAQ – accordion venstre, billede højre */
-    .faq-desktop-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--largeGap);
-        align-items: start;
-    }
-
-    .faq-section h2 {
-        text-align: left;
-        font-size: 2rem;
-    }
-
-    .selskaber-img-section {
-        order: 2;
-        margin-top: 0;
-        padding-top: var(--smallGap);
-    }
-
-    .selskaber-img-section img {
-        height: 400px;
-        max-height: 400px;
-        object-fit: cover;
-    }
-
-
-    .faq-desktop-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--largeGap);
-        align-items: start;
-    }
-
-
-
-
-
-}
-
-/* Kontakt side */
-/* Hero sektion */
-.hero-section-kontakt {
-    width: 100%;
-    height: 200px;
-    margin-top: 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/table.webp);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.hero-section-kontakt h1 {
-    color: var(--pmWhite);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-}
-
-
-.kontakt-intro {
-    padding: var(--smallGap) 0;
-}
-
-.kontakt-intro h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-}
-
-.kontakt-intro p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    line-height: 160%;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.kontakt-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: var(--smallGap);
-}
-
-.kontakt-lokation {
-    padding: var(--smallGap) 0;
-}
-
-.kontakt-lokation h3 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.kontakt-lokation p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    line-height: 160%;
-    color: #333;
-    margin-bottom: 0.75rem;
-}
-
-.kontakt-lokation i {
-    color: var(--darkBlue);
-    margin-right: 0.5rem;
-    width: 16px;
-}
-
-.kontakt-map {
-    width: 100%;
-    height: 200px;
-    display: block;
-    margin-top: 1rem;
-}
-
-.kontakt-divider {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: var(--smallGap) 0;
-}
-
-/* Kontakt side desktop version */
-@media (min-width: 769px) {
-
-    /* HERO */
-    .hero-section-kontakt {
-        height: 350px;
-        margin-top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Intro – tekst venstre, billede højre */
-    .kontakt-intro-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--largeGap);
-        align-items: center;
-        padding: var(--largeGap) 0;
-    }
-
-    .kontakt-img {
-        height: 280px;
-        margin-bottom: 0;
-    }
-
-    /* To lokationer side om side */
-    .kontakt-lokationer-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--largeGap);
-        padding: var(--smallGap) 0;
-    }
-
-    .kontakt-divider {
-        display: none;
-    }
-
-    .kontakt-map {
-        height: 250px;
-    }
-}
-
-/* Book bord side */
-/* Hero sektion */
-.hero-section-bookbord {
-    width: 100%;
-    height: 200px;
-    margin-top: 60px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/restaurant69.webp);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.hero-section-bookbord h1 {
-    color: var(--pmWhite);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-}
-
-.bookbord-intro {
-    padding: var(--smallGap) 0;
-}
-
-.bookbord-intro h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-}
-
-.bookbord-intro p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    line-height: 160%;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.bookbord-obs {
-    font-size: 0.85rem !important;
-    color: #555 !important;
-}
-
-.bookbord-obs a {
-    color: var(--darkBlue);
-    text-decoration: underline;
-}
-
-.bookbord-btn {
-    display: block;
-    margin-left: auto;
-    padding: 14px 28px;
-    margin-top: var(--smallGap);
-    width: fit-content;
-}
-
-.bookbord-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: var(--smallGap);
-}
-
-/* Book bord side desktop version */
-@media (min-width: 769px) {
-
-    /* HERO */
-    .hero-section-bookbord {
-        height: 350px;
-        margin-top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .bookbord-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--largeGap);
-        align-items: center;
-        padding: var(--largeGap) 0;
-        padding-bottom: 8rem;
-    }
-
-    .bookbord-img {
-        height: 320px;
-        margin-bottom: 0;
-    }
-}
-
-/* NICKLAS start her */
-/* Menukort Hero Start*/
-.hero-menukort {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    max-width: 100%;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-img-menukort {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    max-width: none;
-
-    object-fit: cover;
-    object-position: center bottom;
-
-    display: block;
-    z-index: 0;
-}
-
-.hero-overlay-menukort {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(180deg,
-            rgba(0, 0, 0, 0.40) 99.99%,
-            rgba(102, 102, 102, 0.40) 100%);
-
-    z-index: 1;
-}
-
-.hero-content-menukort {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.hero-content-menukort h1 {
-    color: white;
-    font-size: 36px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-/* Menukort Hero Slut */
-
-/* Responsivt design */
-@media (min-width: 768px) {
-    .hero-menukort {
-        height: 350px;
-    }
-
-    .hero-content-menukort h1 {
-        font-size: 56px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero-menukort {
-        height: 450px;
-    }
-
-    .hero-content-menukort h1 {
-        font-size: 72px;
-    }
 }
 
 
