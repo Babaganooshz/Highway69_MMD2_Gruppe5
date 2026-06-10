@@ -1984,6 +1984,7 @@ h6 {
 
 .kontakt-lokation {
     padding: var(--smallGap);
+
 }
 
 .kontakt-lokation h3 {
@@ -2064,6 +2065,13 @@ h6 {
         height: 250px;
         width: 100%;
     }
+
+
+    .kontakt-lokation p.kontakt-cvr {
+        margin-bottom: 2.3rem;
+    }
+
+
 }
 
 /* Book bord side */
