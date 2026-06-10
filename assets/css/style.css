@@ -1293,6 +1293,577 @@ h6 {
 
 
 /* FREYA start her */
+/* Selskaber side */
+/* Hero sektion */
+.hero-section-selskaber {
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/selskab.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-section-selskaber h1 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+}
+
+/* Blå boks */
+.intro-selskaber {
+    background-color: var(--darkBlue);
+    padding: var(--smallGap);
+    margin-top: var(--smallGap);
+}
+
+.intro-selskaber h2 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.intro-selskaber p {
+    color: var(--pmWhite);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    line-height: 160%;
+    margin-bottom: var(--smallGap);
+}
+
+.intro-selskaber img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.intro-selskaber-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* buffet muligheder */
+.buffet-udvalg {
+    padding: var(--smallGap) 0;
+}
+
+.buffet-udvalg h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.buffet-intro {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    line-height: 160%;
+    color: #333;
+    margin-bottom: 1rem;
+
+}
+
+.buffet-note {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: var(--smallGap);
+
+}
+
+.buffet-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: var(--smallGap) 0;
+}
+
+.buffet-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.buffet-card-header h3 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.buffet-price {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.buffet-card p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    line-height: 160%;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.buffet-notice {
+    color: #555;
+    font-style: italic;
+}
+
+.buffet-section-title {
+    font-weight: 700 !important;
+    color: var(--darkBlue) !important;
+    margin-top: 0.5rem;
+}
+
+.buffet-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.buffet-card .btn {
+    align-self: flex-end;
+    padding: 13px 28px;
+    margin-top: var(--smallGap);
+}
+
+.selskaber-img-section {
+    width: 100%;
+    margin-top: var(--smallGap);
+}
+
+.selskaber-img-section img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+/* FAQ */
+.faq-section {
+    padding: var(--smallGap) 0 var(--largeGap);
+}
+
+.faq-section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: var(--smallGap);
+}
+
+.faq-item {
+    border-top: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+.faq-item:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--darkBlue);
+    border: none;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--pmWhite);
+    gap: 1rem;
+    margin-bottom: 2px;
+}
+
+.faq-question i {
+    color: var(--pmWhite);
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+    background-color: var(--darkBlue);
+    margin-bottom: 2px;
+}
+
+.faq-answer p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    line-height: 160%;
+    color: var(--pmWhite);
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.faq-answer.open {
+    max-height: 300px;
+}
+
+/* desktop version - selskaber */
+@media (min-width: 769px) {
+
+
+
+    /* HERO */
+    .hero-section-selskaber {
+        height: 350px;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    /* INTRO BLÅ BOKS */
+    .intro-selskaber {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: var(--smallGap);
+        margin-top: var(--smallGap);
+    }
+
+    .intro-selskaber img {
+        height: 260px;
+        object-fit: cover;
+        order: 0;
+    }
+
+    .intro-selskaber h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+
+
+    /* BUFFET  */
+    .buffet-cards-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--smallGap);
+        margin-top: var(--smallGap);
+    }
+
+    .buffet-card {
+        border: 1px solid #ccc;
+        padding: var(--smallGap);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buffet-divider {
+        display: none;
+    }
+
+    .buffet-intro,
+    .buffet-note {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    .buffet-cards-wrapper .buffet-card .btn {
+        margin-top: auto;
+        width: auto;
+        align-self: flex-end;
+        padding: 13px 28px;
+    }
+
+    /* Skubber knappen ned i bunden af kortet */
+    .buffet-card .btn {
+        margin-top: auto;
+        width: auto;
+        margin-top: var(--smallGap);
+    }
+
+    .buffet-udvalg h2 {
+        font-size: 2.2rem;
+    }
+
+    /* FAQ – accordion venstre, billede højre */
+    .faq-desktop-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--largeGap);
+        align-items: start;
+    }
+
+    .faq-section h2 {
+        text-align: left;
+        font-size: 2rem;
+    }
+
+    .selskaber-img-section {
+        order: 2;
+        margin-top: 0;
+        padding-top: var(--smallGap);
+    }
+
+    .selskaber-img-section img {
+        height: 400px;
+        max-height: 400px;
+        object-fit: cover;
+    }
+
+
+    .faq-desktop-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--largeGap);
+        align-items: start;
+    }
+
+
+
+
+
+}
+
+/* Kontakt side */
+/* Hero sektion */
+.hero-section-kontakt {
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/table.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-section-kontakt h1 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+}
+
+
+.kontakt-intro {
+    padding: var(--smallGap) 0;
+}
+
+.kontakt-intro h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.kontakt-intro p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    line-height: 160%;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.kontakt-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: var(--smallGap);
+}
+
+.kontakt-lokation {
+    padding: var(--smallGap) 0;
+}
+
+.kontakt-lokation h3 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.kontakt-lokation p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    line-height: 160%;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.kontakt-lokation i {
+    color: var(--darkBlue);
+    margin-right: 0.5rem;
+    width: 16px;
+}
+
+.kontakt-map {
+    width: 100%;
+    height: 200px;
+    display: block;
+    margin-top: 1rem;
+}
+
+.kontakt-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: var(--smallGap) 0;
+}
+
+/* Kontakt side desktop version */
+@media (min-width: 769px) {
+
+    /* HERO */
+    .hero-section-kontakt {
+        height: 350px;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Intro – tekst venstre, billede højre */
+    .kontakt-intro-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--largeGap);
+        align-items: center;
+        padding: var(--largeGap) 0;
+    }
+
+    .kontakt-img {
+        height: 280px;
+        margin-bottom: 0;
+    }
+
+    /* To lokationer side om side */
+    .kontakt-lokationer-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--largeGap);
+        padding: var(--smallGap) 0;
+    }
+
+    .kontakt-divider {
+        display: none;
+    }
+
+    .kontakt-map {
+        height: 250px;
+    }
+}
+
+/* Book bord side */
+/* Hero sektion */
+.hero-section-bookbord {
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/restaurant69.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-section-bookbord h1 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+}
+
+.bookbord-intro {
+    padding: var(--smallGap) 0;
+}
+
+.bookbord-intro h2 {
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--darkBlue);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.bookbord-intro p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    line-height: 160%;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.bookbord-obs {
+    font-size: 0.85rem !important;
+    color: #555 !important;
+}
+
+.bookbord-obs a {
+    color: var(--darkBlue);
+    text-decoration: underline;
+}
+
+.bookbord-btn {
+    display: block;
+    margin-left: auto;
+    padding: 14px 28px;
+    margin-top: var(--smallGap);
+    width: fit-content;
+}
+
+.bookbord-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: var(--smallGap);
+}
+
+/* Book bord side desktop version */
+@media (min-width: 769px) {
+
+    /* HERO */
+    .hero-section-bookbord {
+        height: 350px;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bookbord-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--largeGap);
+        align-items: center;
+        padding: var(--largeGap) 0;
+        padding-bottom: 8rem;
+    }
+
+    .bookbord-img {
+        height: 320px;
+        margin-bottom: 0;
+    }
+}
 
 /* NICKLAS start her */
 /* Menukort Hero Start*/
