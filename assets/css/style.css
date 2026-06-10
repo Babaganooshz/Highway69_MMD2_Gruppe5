@@ -1450,7 +1450,7 @@ h6 {
 /* Hero sektion */
 .hero-section-selskaber {
     width: 100%;
-    height: 200px;
+    height: 250px;
     margin-top: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/selskab.webp);
     background-size: cover;
@@ -1507,6 +1507,7 @@ h6 {
 /* buffet muligheder */
 .buffet-udvalg {
     padding: var(--smallGap) 0;
+    margin: var(--smallGap) var(--smallGap);
 }
 
 .buffet-udvalg h2 {
@@ -1605,6 +1606,7 @@ h6 {
 /* FAQ */
 .faq-section {
     padding: var(--smallGap) 0 var(--largeGap);
+    margin: 0 var(--smallGap);
 }
 
 .faq-section h2 {
@@ -1676,7 +1678,7 @@ h6 {
 
     /* HERO */
     .hero-section-selskaber {
-        height: 400px;
+        height: 500px;
         margin-top: 0;
         display: flex;
         align-items: center;
@@ -1795,7 +1797,7 @@ h6 {
 /* Hero sektion */
 .hero-section-kontakt {
     width: 100%;
-    height: 200px;
+    height: 250px;
     margin-top: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/table.webp);
     background-size: cover;
@@ -1804,6 +1806,10 @@ h6 {
     align-items: center;
     justify-content: center;
 
+}
+
+.kontakt-intro-wrapper {
+    margin: 0 var(--smallGap);
 }
 
 .hero-section-kontakt h1 {
@@ -1842,7 +1848,7 @@ h6 {
 }
 
 .kontakt-lokation {
-    padding: var(--smallGap) 0;
+    padding: var(--smallGap);
 }
 
 .kontakt-lokation h3 {
@@ -1884,7 +1890,7 @@ h6 {
 
     /* HERO */
     .hero-section-kontakt {
-        height: 350px;
+        height: 500px;
         margin-top: 0;
         display: flex;
         align-items: center;
@@ -1898,6 +1904,7 @@ h6 {
         gap: var(--largeGap);
         align-items: center;
         padding: var(--largeGap) 0;
+        margin: 0 var(--largeGap);
     }
 
     .kontakt-img {
@@ -1910,7 +1917,8 @@ h6 {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--largeGap);
-        padding: var(--smallGap) 0;
+        padding: var(--smallGap) var(--largeGap);
+        align-items: start;
     }
 
     .kontakt-divider {
@@ -1919,6 +1927,7 @@ h6 {
 
     .kontakt-map {
         height: 250px;
+        width: 100%;
     }
 }
 
@@ -1926,7 +1935,7 @@ h6 {
 /* Hero sektion */
 .hero-section-bookbord {
     width: 100%;
-    height: 200px;
+    height: 250px;
     margin-top: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/restaurant69.webp);
     background-size: cover;
@@ -1945,7 +1954,7 @@ h6 {
 }
 
 .bookbord-intro {
-    padding: var(--smallGap) 0;
+    padding: var(--smallGap);
 }
 
 .bookbord-intro h2 {
@@ -1986,7 +1995,7 @@ h6 {
     height: 220px;
     object-fit: cover;
     display: block;
-    margin-bottom: var(--smallGap);
+    margin-bottom: var(--largeGap);
 }
 
 /* Book bord side desktop version */
@@ -1994,7 +2003,7 @@ h6 {
 
     /* HERO */
     .hero-section-bookbord {
-        height: 350px;
+        height: 500px;
         margin-top: 0;
         display: flex;
         align-items: center;
@@ -2008,6 +2017,7 @@ h6 {
         align-items: center;
         padding: var(--largeGap) 0;
         padding-bottom: 8rem;
+        margin: var(--smallGap) var(--largeGap);
     }
 
     .bookbord-img {
