@@ -25,6 +25,10 @@ main {
         margin-inline: auto;
         padding-inline: var(--largeGap);
     }
+
+    .btn-mobile {
+        font-size: medium;
+    }
 }
 
 :root {
@@ -73,7 +77,6 @@ h6 {
 
 .btn-mobile {
     padding: 14px 24px;
-    width: 50%;
 }
 
 .btn-desktop {
@@ -1101,10 +1104,6 @@ h6 {
             line-height: 150%;
         }
     }
-
-    .btn-mobile {
-        font-size: medium;
-    }
 }
 
 @media (min-width: 1100px) {
@@ -1673,14 +1672,11 @@ h6 {
         margin-top: auto;
         width: auto;
         align-self: flex-end;
-        padding: 13px 28px;
     }
 
     /* Skubber knappen ned i bunden af kortet */
     .buffet-card .btn {
-        margin-top: auto;
-        width: auto;
-        margin-top: var(--smallGap);
+        padding: 14px 24px;
     }
 
     .buffet-udvalg h2 {
@@ -1915,7 +1911,7 @@ h6 {
 .bookbord-btn {
     display: block;
     margin-left: auto;
-    padding: 14px 28px;
+    padding: 14px 24px;
     margin-top: var(--smallGap);
     width: fit-content;
 }
