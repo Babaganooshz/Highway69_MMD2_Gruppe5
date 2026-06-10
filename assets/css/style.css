@@ -1683,7 +1683,7 @@ h6 {
 .intro-selskaber {
     background-color: var(--darkBlue);
     padding: var(--smallGap);
-    margin: var(--smallGap) var(--largeGap);
+    margin: var(--smallGap) var(--smallGap);
 }
 
 .intro-selskaber h2 {
@@ -1984,6 +1984,7 @@ h6 {
 
 .kontakt-lokation {
     padding: var(--smallGap);
+
 }
 
 .kontakt-lokation h3 {
@@ -2064,6 +2065,13 @@ h6 {
         height: 250px;
         width: 100%;
     }
+
+
+    .kontakt-lokation p.kontakt-cvr {
+        margin-bottom: 2.3rem;
+    }
+
+
 }
 
 /* Book bord side */
