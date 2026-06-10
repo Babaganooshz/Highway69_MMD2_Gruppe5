@@ -358,62 +358,60 @@ h6 {
 /* NICKLAS start her */
 /* Menukort Hero Start*/
 .hero-menukort {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  max-width: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 220px;
+    max-width: 100%;
+    overflow: hidden;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-img-menukort {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
-  max-width: none;
+    width: 100%;
+    height: 100%;
+    max-width: none;
 
-  object-fit: cover;
-  object-position: center center;
+    object-fit: cover;
+    object-position: center center;
 
-  display: block;
-  z-index: 0;
+    display: block;
+    z-index: 0;
 }
 
 .hero-overlay-menukort {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.40) 99.99%,
-    rgba(102, 102, 102, 0.40) 100%
-  );
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.40) 99.99%,
+            rgba(102, 102, 102, 0.40) 100%);
 
-  z-index: 1;
+    z-index: 1;
 }
 
 .hero-content-menukort {
-  position: relative;
-  z-index: 2;
-  text-align: center;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
 .hero-content-menukort h1 {
-  color: var(--pmWhite);
-  font-size: 36px;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin: 0;
+    color: var(--pmWhite);
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 /* Menukort Hero Slut */
@@ -680,10 +678,11 @@ h6 {
         column-gap: 5rem;
         row-gap: 4rem;
     }
+
     .hero-menukort {
-    height: 550px;
-    max-height: 550px;
-  }
+        height: 550px;
+        max-height: 550px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1603,74 +1602,6 @@ h6 {
     display: block;
 }
 
-/* FAQ */
-.faq-section {
-    padding: var(--smallGap) 0 var(--largeGap);
-    margin: 0 var(--smallGap);
-}
-
-.faq-section h2 {
-    font-family: "Bebas Neue", sans-serif;
-    color: var(--darkBlue);
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: var(--smallGap);
-}
-
-.faq-item {
-    border-top: 1px solid #ccc;
-    margin-bottom: 1rem;
-}
-
-.faq-question {
-    width: 100%;
-    background-color: var(--darkBlue);
-    border: none;
-    text-align: left;
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--pmWhite);
-    gap: 1rem;
-    margin-bottom: 2px;
-}
-
-.faq-question i {
-    color: var(--pmWhite);
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.faq-question[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-    background-color: var(--darkBlue);
-    margin-bottom: 2px;
-}
-
-.faq-answer p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.9rem;
-    line-height: 160%;
-    color: var(--pmWhite);
-    padding: 1rem 1.25rem 1.25rem;
-}
-
-.faq-answer.open {
-    max-height: 300px;
-}
-
 /* desktop version - selskaber */
 @media (min-width: 769px) {
 
@@ -1763,7 +1694,7 @@ h6 {
     }
 
     .faq-section h2 {
-        text-align: left;
+        text-align: center;
         font-size: 2rem;
     }
 
@@ -1775,7 +1706,7 @@ h6 {
 
     .selskaber-img-section img {
         height: 400px;
-        max-height: 400px;
+        max-height: 100%;
         object-fit: cover;
     }
 
@@ -1784,12 +1715,8 @@ h6 {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--largeGap);
-        align-items: start;
+        align-items: stretch;
     }
-
-
-
-
 
 }
 
@@ -1867,7 +1794,7 @@ h6 {
 }
 
 .kontakt-lokation i {
-    color: var(--darkBlue);
+    color: var(--orange);
     margin-right: 0.5rem;
     width: 16px;
 }
