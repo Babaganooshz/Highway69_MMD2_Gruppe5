@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-	<script src="./assets/js/app.js" defer ></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<script src="./assets/js/app.js" defer></script>
 </head>
+
 <body>
-    <header>
+	<header>
 		<nav class="nav-mobile">
 			<img src="./assets/img/logo.png" alt="Highway 69 Logo" id="logoHighway-mobile">
 
@@ -18,20 +20,20 @@
 			</div>
 			<div class="navDropdown" id="navDropdown">
 				<ul class="nav-list">
-					<li class="links"><a href="#">Menukort</a></li>
-					<li class="links"><a href="#">Selskaber</a></li>
-					<li class="links"><a href="#">Book bord</a></li>
-					<li class="links"><a href="#">Takeaway</a></li>
-					<li class="links"><a href="#">Om os</a></li>
-					<li class="links"><a href="#">Job</a></li>
-					<li class="links"><a href="#">Kontakt</a></li>
+					<li class="links"><a href="./menukort.html" class="active">Menukort</a></li>
+					<li class="links"><a href="./selskaber.html">Selskaber</a></li>
+					<li class="links"><a href="./bookbord.html">Book bord</a></li>
+					<li class="links"><a href="./takeaway.html">Takeaway</a></li>
+					<li class="links"><a href="./omos.html">Om os</a></li>
+					<li class="links"><a href="./job.html">Job</a></li>
+					<li class="links"><a href="./kontakt.html">Kontakt</a></li>
 				</ul>
 			</div>
 		</nav>
 		<nav class="nav-desktop">
 			<img src="./assets/img/logo.png" alt="Highway 69 Logo" id="logoHighway-desktop">
 			<ul class="nav-list-desktop">
-				<li class="links"><a href="./menukort.html">Menukort</a></li>
+				<li class="links"><a href="./menukort.html" class="active">Menukort</a></li>
 				<li class="links"><a href="./selskaber.html">Selskaber</a></li>
 				<li class="links"><a href="./bookbord.html">Book bord</a></li>
 				<li class="links"><a href="./takeaway.html">Takeaway</a></li>
@@ -41,55 +43,56 @@
 			</ul>
 		</nav>
 	</header>
-    <section class="hero-menukort">
-  <img src="./assets/img/table.webp" alt="Highway 69 restaurant" class="hero-img-menukort">
+	<section class="hero-menukort">
+		<img src="./assets/img/american_steak.webp" alt="Highway 69 restaurant" class="hero-img-menukort">
 
-  <div class="hero-overlay-menukort"></div>
+		<div class="hero-overlay-menukort"></div>
 
-  <div class="hero-content-menukort">
-    <h1>Menukort</h1>
-  </div>
-</section>
+		<div class="hero-content-menukort">
+			<h1>Menukort</h1>
+		</div>
+	</section>
 
-<section class="menuIntro">
-      <h1>Vores menu</h1>
+	<section class="menuIntro">
+		<h1>Vores menu</h1>
 
-      <div class="menuKnapper" id="madKnapper">
-        <button class="menuKnap active" data-id="35" data-title="Burgere" data-icon="fa-burger">Burger</button>
-        <button class="menuKnap" data-id="37" data-title="Steaks" data-icon="fa-utensils">Steaks</button>
-        <button class="menuKnap" data-id="38" data-title="BBQ ribs" data-icon="fa-bacon">BBQ ribs</button>
-        <button class="menuKnap" data-id="36" data-title="Pizzaer" data-icon="fa-pizza-slice">Pizzaer</button>
-        <button class="menuKnap" data-id="39" data-title="Lette retter" data-icon="fa-leaf">Lette retter</button>
-        <button class="menuKnap" data-id="41" data-title="Desserter" data-icon="fa-ice-cream">Desserter</button>
-        <button class="menuKnap" data-id="42" data-title="Tilbud" data-icon="fa-tag">Tilbud</button>
-        <button class="menuKnap" data-id="40" data-title="Børnemenuer" data-icon="fa-child">Børnemenuer</button>
-      </div>
-    </section>
+		<div class="menuKnapper" id="madKnapper">
+			<button class="menuKnap active" data-id="35" data-title="Burgere" data-icon="fa-burger">Burger</button>
+			<button class="menuKnap" data-id="37" data-title="Steaks" data-icon="fa-utensils">Steaks</button>
+			<button class="menuKnap" data-id="38" data-title="BBQ ribs" data-icon="fa-bacon">BBQ ribs</button>
+			<button class="menuKnap" data-id="36" data-title="Pizzaer" data-icon="fa-pizza-slice">Pizzaer</button>
+			<button class="menuKnap" data-id="39" data-title="Lette retter" data-icon="fa-leaf">Lette retter</button>
+			<button class="menuKnap" data-id="41" data-title="Desserter" data-icon="fa-ice-cream">Desserter</button>
+			<button class="menuKnap" data-id="42" data-title="Tilbud" data-icon="fa-tag">Tilbud</button>
+			<button class="menuKnap" data-id="40" data-title="Børnemenuer" data-icon="fa-child">Børnemenuer</button>
+		</div>
+	</section>
 
-    <section class="menuAfsnit">
-      <div class="menuOverskrift">
-        <i id="madIkon" class="fa-solid fa-burger"></i>
-        <h2 id="madTitel">Burgere</h2>
-      </div>
+	<section class="menuAfsnit">
+		<div class="menuOverskrift">
+			<i id="madIkon" class="fa-solid fa-burger"></i>
+			<h2 id="madTitel">Burgere</h2>
+		</div>
 
-      <section class="menuGrid" id="madListe">
-      </section>
-    </section>
+		<section class="menuGrid" id="madListe">
+		</section>
+	</section>
 
-    <section class="drikkevarer">
-      <h2>Drikkevarer</h2>
+	<section class="drikkevarer">
+		<h2>Drikkevarer</h2>
 
-      <div class="menuKnapper drikkeKnapper" id="drikkeKnapper">
-        <button class="menuKnap active" data-id="45" data-title="Sodavand" data-icon="fa-glass-water">Sodavand</button>
-        <button class="menuKnap" data-id="46" data-title="Øl" data-icon="fa-beer-mug-empty">Øl</button>
-        <button class="menuKnap" data-id="47" data-title="Vin" data-icon="fa-wine-glass">Vin</button>
-        <button class="menuKnap" data-id="44" data-title="Varme drikke" data-icon="fa-mug-hot">Varme drikke</button>
-      </div>
+		<div class="menuKnapper drikkeKnapper" id="drikkeKnapper">
+			<button class="menuKnap active" data-id="45" data-title="Sodavand"
+				data-icon="fa-glass-water">Sodavand</button>
+			<button class="menuKnap" data-id="46" data-title="Øl" data-icon="fa-beer-mug-empty">Øl</button>
+			<button class="menuKnap" data-id="47" data-title="Vin" data-icon="fa-wine-glass">Vin</button>
+			<button class="menuKnap" data-id="44" data-title="Varme drikke" data-icon="fa-mug-hot">Varme drikke</button>
+		</div>
 
-      <section class="drikkeGrid" id="drikkeListe">
-      </section>
-    </section>
-    <footer class="footer">
+		<section class="drikkeGrid" id="drikkeListe">
+		</section>
+	</section>
+	<footer class="footer">
 		<div class="footer-container">
 
 			<!-- Åbningstider -->
@@ -114,12 +117,11 @@
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2494.8777394038148!2d10.511452012891626!3d57.34397397360482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464f23791f34e95b%3A0x2f5ff58b0fe60514!2sHighway%2069!5e1!3m2!1sda!2sdk!4v1780762509409!5m2!1sda!2sdk"
 						style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-						class="map-iframe"></iframe>
+						classs="map-iframe"></iframe>
 
 					<div class="footer-icons">
 						<a href="https://www.facebook.com/highway69saeby/?locale=da_DK">
-							<img src="./assets/img/facebook-brands-solid-full (2).png" alt="Facebook ikon"
-								id="facebookIcon">
+							<img src="./assets/img/Facebook_Logo_Secondary.png" alt="Facebook ikon" id="facebookIcon">
 						</a>
 						<a
 							href="https://www.tripadvisor.com/Restaurant_Review-g1486554-d3445259-Reviews-Restaurant_Highway_69-Saeby_Frederikshavn_North_Jutland_Jutland.html">
@@ -132,4 +134,5 @@
 		</div>
 	</footer>
 </body>
+
 </html>

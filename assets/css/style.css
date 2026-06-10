@@ -12,6 +12,21 @@ html {
     background-color: var(--pmWhite);
 }
 
+/* Begrænser indholdsbredden og centrerer main på siden */
+main {
+    width: 100%;
+    padding-inline: var(--smallGap);
+}
+
+/* Håndterer layout på større skærmstørrelser */
+@media (min-width: 769px) {
+    main {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: var(--largeGap);
+    }
+}
+
 :root {
     /* Farver */
     --orange: #EF3D04;
@@ -48,7 +63,7 @@ h6 {
     cursor: pointer;
     transition: opacity 0.15s ease, transform 0.1s ease;
     text-decoration: none;
-    font-size: small;
+    font-size: 15px;
 }
 
 .btn:hover {
@@ -57,9 +72,15 @@ h6 {
 }
 
 .btn-mobile {
-    padding: 8px 14px;
-    margin-top: var(--smallGap);
+    padding: 14px 24px;
+    width: 50%;
 }
+
+.btn-desktop {
+    padding: 13px 28px;
+    min-width: 140px;
+}
+
 
 /* NAV - MOBIL */
 /* Skjuler dekstop navbaren på mobil versionen */
@@ -85,11 +106,6 @@ h6 {
     height: 40px;
 }
 
-.nav-mobile a {
-    display: flex;
-    align-items: center;
-}
-
 .burgerMenuIcon {
     display: flex;
     cursor: pointer;
@@ -102,6 +118,7 @@ h6 {
 
 .nav-list {
     list-style: none;
+    background: var(--darkBlue);
     padding: 0;
     margin: 0;
 }
@@ -117,20 +134,14 @@ h6 {
 
 .navDropdown {
     position: fixed;
-    background-color: var(--darkBlue);
     top: 60px;
     right: 0;
     width: 60%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     transform: translateX(100%);
     transition: transform 0.4s ease;
-}
 
-@media (min-width:659px) {
-    .navDropdown {
-        width: 50%;
-    }
 }
 
 .navDropdown.show {
@@ -149,11 +160,6 @@ h6 {
 
     .nav-mobile {
         display: none;
-    }
-
-    .nav-desktop a {
-        display: flex;
-        align-items: center;
     }
 
     .nav-desktop {
@@ -191,14 +197,6 @@ h6 {
     }
 }
 
-/* Gør det tydeligt for brugeren, hvilken side de er på  */
-.nav-list .active {
-    color: var(--orange);
-}
-
-.nav-list-desktop .active {
-    color: var(--darkBlue);
-}
 
 /* FOOTER MOBILE */
 .footer {
@@ -228,13 +226,14 @@ h6 {
 
 .map-iframe {
     width: 100%;
+    height: 300px;
     display: block;
 }
 
 #facebookIcon,
 #tripadvisorIcon {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
 
 }
 
@@ -256,7 +255,7 @@ h6 {
 }
 
 /* FOOTER DESKTOP */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .footer-container {
         display: flex;
         width: 100%;
@@ -264,12 +263,10 @@ h6 {
         justify-content: center;
         align-items: flex-start;
         margin: 0 auto;
-        gap: var(--largeGap);
-        flex-wrap: wrap;
     }
 
     .footer-section {
-        padding-right: var(--smallGap);
+        padding-top: var(--largeGap);
     }
 
     .footer-section h3 {
@@ -297,107 +294,21 @@ h6 {
     }
 }
 
-@media (min-width:900px) {
-    .footer-container {
-        flex-wrap: nowrap;
-    }
-
-    .footer-section h3 {
-        padding-bottom: 1.5rem;
-    }
-
-    .map-iframe {
-        height: 200px;
-    }
-}
-
 /* FREJA start her */
 /* FORSIDE */
-/* Hero karrusel */
-.hero {
-    margin: 0px;
-    height: 250px;
+
+.btn-desktop {
+    display: none;
+}
+
+.hero-section-forside {
     width: 100%;
+    display: block;
+    height: 200px;
     margin-top: 60px;
-    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/baren.webp);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    animation: slider 15s ease-in infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    object-fit: cover;
-}
-
-.hero h1 {
-    color: var(--pmWhite);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-#forside-intro {
-    scroll-margin-top: 90px;
-}
-
-#hero-arrow {
-    color: var(--pmWhite);
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    animation-name: jump;
-    animation-duration: 1500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    transition: opacity 1000ms;
-}
-
-/* Animation på pilen*/
-@keyframes jump {
-    0% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-/* Slideshow til forsiden. For hvert breakpoint bliver et nyt billede vist */
-@keyframes slider {
-    0% {
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-            url('../img/baren.webp');
-    }
-
-    20% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
-
-    }
-
-    40% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/udenfor.webp');
-    }
-
-    60% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/cheeseburger.webp');
-    }
-
-    80% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/pynt.webp');
-    }
-
-    100% {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/american_steak.webp');
-    }
 }
 
 /* Uddybende intro tekst på forsiden */
@@ -423,13 +334,11 @@ h6 {
 /* Intro sektionen på forsiden */
 .intro-forside h2 {
     margin-top: var(--smallGap);
-    line-height: 150%;
-    padding-left: var(--smallGap);
 }
 
 .intro-forside p {
     font-family: "Roboto", sans-serif;
-    padding: var(--smallGap);
+    padding: var(--smallGap) 0 var(--smallGap) 0;
     line-height: 150%;
     font-size: small;
 }
@@ -438,107 +347,124 @@ h6 {
     color: var(--orange);
 }
 
-/* Focused entry point sektionen */
-
-.entry-point-forside {
-    padding: var(--smallGap);
-    padding-top: 0;
-}
-
-.entry-points-forside {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.entry-point-forside h2 {
-    padding: 0 0 var(--smallGap) 0;
-}
-
-#menukort-heading {
-    padding-top: var(--smallGap);
-}
-
-.entry-point-forside h2:last-child {
-    padding-top: var(--smallGap);
-}
-
-.entry-point-forside p {
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-}
-
-.entry-img {
+.intro-forside img {
     width: 100%;
-    height: 200px;
+    height: 170px;
     object-fit: cover;
-
 }
 
-#stekas-entry-img {
-    padding: 0 var(--smallGap) var(--smallGap) var(--smallGap);
-    order: -1;
+/* FREYA start her */
 
+/* NICKLAS start her */
+/* Menukort Hero Start*/
+.hero-menukort {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  max-width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.hero-img-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-/* Hvorfor vælge highway sektionen */
-.choosing-section {
-    padding: var(--smallGap);
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center center;
+
+  display: block;
+  z-index: 0;
 }
 
+.hero-overlay-menukort {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.pick-list {
-    list-style: none;
-    padding-left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.40) 99.99%,
+    rgba(102, 102, 102, 0.40) 100%
+  );
+
+  z-index: 1;
 }
 
-.point img {
-    height: auto;
-    width: 1.5rem;
-    min-width: 2rem;
+.hero-content-menukort {
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
-.point {
-    padding: 0.75rem 0;
-    font-family: "Roboto", sans-serif;
-    font-size: small;
-    display: flex;
-    align-items: center;
+.hero-content-menukort h1 {
+  color: var(--pmWhite);
+  font-size: 36px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Menukort Hero Slut */
+
+/* Menu start */
+
+.menuIntro,
+.menuAfsnit,
+.drikkevarer {
+    width: 100%;
+    padding-inline: var(--smallGap);
+}
+
+.menuIntro {
+    padding-top: 4rem;
+    text-align: center;
+}
+
+.menuIntro h1,
+.drikkevarer h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.menuKnapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-.images-bottom-front-page {
-    padding: 0 var(--smallGap);
-    gap: 20px;
+.menuKnap {
+    background-color: var(--pmWhite);
+    color: var(--darkBlue);
+    border: 1px solid var(--darkBlue);
+    min-height: 38px;
+    padding: 0.5rem 1rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.images-bottom-front-page img {
-    width: 100%;
-    object-fit: cover;
-    height: 200px;
-}
-
-/* Anmeldelse slider */
-.reviews-section h2 {
-    padding: var(--smallGap);
+.menuKnap:hover,
+.menuKnap.active {
+    background-color: var(--orange);
+    color: var(--pmWhite);
+    border-color: var(--orange);
 }
 
 
-.reviews-section {
-    padding-bottom: var(--largeGap);
-}
-
-.reviews-slider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.reviews-track {
-    overflow: hidden;
-    width: 100%;
-}
 
 
 .menuAfsnit {
@@ -618,8 +544,7 @@ h6 {
 }
 
 
-/* =========================
-   DRIKKEVARER
+
 
 .drikkevarer {
     padding-top: 5rem;
@@ -755,6 +680,10 @@ h6 {
         column-gap: 5rem;
         row-gap: 4rem;
     }
+    .hero-menukort {
+    height: 550px;
+    max-height: 550px;
+  }
 }
 
 @media (min-width: 1200px) {
