@@ -1364,7 +1364,7 @@ h6 {
 
 .menuIntro h1,
 .drikkevarer h2 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
 }
@@ -1638,6 +1638,7 @@ h6 {
 .intro-selskaber {
     background-color: var(--darkBlue);
     padding: var(--smallGap);
+    margin-top: var(--smallGap);
 }
 
 .intro-selskaber h2 {
