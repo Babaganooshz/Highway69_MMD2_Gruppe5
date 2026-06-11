@@ -33,8 +33,6 @@ async function showMenuItems(categoryId) {
     MenuItems.forEach(item => { selectedQty[item.id] = 1; });
 }
 
-
-
 /* Indlæs menu, og derved showItems - find dernæst et element der har "menuList" som id*/
 function renderMenu(showItems) {
     const list = document.getElementById('menuList');
@@ -95,7 +93,7 @@ function getMenuItems(categoryId) {
                     name: post.title.rendered,
                     price: post.acf.pris,
                     desc: post.acf.beskrivelse,
-                    /*        sides: ['POMMES FRITES', 'PEBER SAUCE'], */
+                    sides: post.acf.valg_af_tilbehor ? [post.acf.valg_af_tilbehor] : [],
                 };
             });
             console.log(Menu);
@@ -104,7 +102,7 @@ function getMenuItems(categoryId) {
         .catch(err => console.error(err));
 
 }
-/* -------------------------- HJÆLP ------------------------------------------- */
+
 /* QTY HELPERS */
 function setQty(id, value) {
     selectedQty[id] = parseInt(value, 10);
