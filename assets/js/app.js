@@ -43,12 +43,7 @@ document.addEventListener("click", function (event) {
     }
 });
 
-/* FREJA start her */
-
-/* FREYA Start her */
-
-/* NICKLAS start her */
-
+/* MENUKORT - SIDE */
 /* Menukort filter */
 const apiUrl = "https://test.fischerdesign.dk/wp-json/wp/v2/posts?acf_format=standard&per_page=100";
 const kategoriUrl = "https://test.fischerdesign.dk/wp-json/wp/v2/categories?per_page=100";
