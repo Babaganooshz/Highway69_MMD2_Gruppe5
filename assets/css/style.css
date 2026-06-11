@@ -2203,8 +2203,6 @@ h6 {
     background: var(--darkBlue);
     display: flex;
     align-items: center;
-    gap: var(--largeGap);
-    padding: 0 40px;
 }
 
 .cat-btn {
@@ -2257,7 +2255,6 @@ h6 {
     bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 500;
     background: var(--orange);
     border: none;
     color: var(--pmWhite);

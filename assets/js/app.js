@@ -84,12 +84,14 @@ const kategoriIkoner = {
     65: "fa-droplet"
 };
 
+// Først tjekkes det om HTML'elementerne findes på siden
 if (madListe && drikkeListe) {
     hentMenuData();
     aktiverMadKnapper();
     aktiverDrikkeKnapper();
 }
 
+// Henter alle posts og kategorier fra WordPress API'et 
 function hentMenuData() {
     fetch(apiUrl)
         .then(function (response) {
@@ -97,7 +99,7 @@ function hentMenuData() {
         })
         .then(function (posts) {
             allePosts = posts;
-
+            // Når posts er hentet, hent også kategorier 
             return fetch(kategoriUrl);
         })
         .then(function (response) {
@@ -106,7 +108,7 @@ function hentMenuData() {
         .then(function (kategorier) {
             alleKategorier = kategorier;
 
-            /* Burger og sodavand vælges automatisk */
+            // Burger og sodavand vises som standard ved sideindlæsning 
             visMad(35, "Burgere", "fa-burger");
             visDrikkevarer(45);
         });
@@ -114,16 +116,18 @@ function hentMenuData() {
 
 
 /* MAD KNAPPER */
-
+// Giv alle mad-knapper en click-EventListener 
 function aktiverMadKnapper() {
     madKnapper.forEach(function (knap) {
         knap.addEventListener("click", function () {
+            // Fjern "active" fra alle knapper, og sæt det kun på den klikkede
             madKnapper.forEach(function (andenKnap) {
                 andenKnap.classList.remove("active");
             });
 
             knap.classList.add("active");
 
+            // Hent kategori-id, titel og ikon fra knappens data-attributter
             const kategoriId = Number(knap.dataset.id);
             const titel = knap.dataset.title;
             const ikon = knap.dataset.icon;
@@ -133,13 +137,15 @@ function aktiverMadKnapper() {
     });
 }
 
-
+// Filtrerer og viser mad items der passer til den valgte kategori
 function visMad(kategoriId, titel, ikon) {
     madListe.innerHTML = "";
 
+    // Opdater overskrift og ikon i toppen af sektionen, så den passer til det valgte
     madTitel.textContent = titel;
     madIkon.className = "fa-solid " + ikon;
 
+    // Filtrer posts så kun dem i den valgte kategori vises 
     const filtreredeRetter = allePosts.filter(function (post) {
         return post.categories.includes(kategoriId);
     });
@@ -152,12 +158,14 @@ function visMad(kategoriId, titel, ikon) {
     filtreredeRetter.forEach(function (post) {
         const acf = post.acf;
 
+        // Hent feltværdier fra ACF — brug fallback hvis feltet er tomt
         const navn = acf.navn_pa_ret || post.title.rendered;
         const beskrivelse = acf.beskrivelse || "";
         const vaegt = acf.vaegt || "";
         const pris = acf.pris || "";
         const tilbehor = acf.valg_af_tilbehor || "";
 
+        // Byg HTML-blokke kun hvis felterne har indhold
         let vaegtHtml = "";
         let prisHtml = "";
         let tilbehorHtml = "";
@@ -201,10 +209,11 @@ function visMad(kategoriId, titel, ikon) {
 
 
 /* DRIKKE KNAPPER */
-
+// Giv alle drikke-knapper en click-EventListener
 function aktiverDrikkeKnapper() {
     drikkeKnapper.forEach(function (knap) {
         knap.addEventListener("click", function () {
+            // Fjern class = "active" fra alle knapper, og sæt det kun på den valgte
             drikkeKnapper.forEach(function (andenKnap) {
                 andenKnap.classList.remove("active");
             });
@@ -218,24 +227,29 @@ function aktiverDrikkeKnapper() {
     });
 }
 
-
+//Vis drikkevarer for den valgte kategori.
+//Har kategorien underkategorier, vises disse hver for sig
 function visDrikkevarer(parentId) {
     drikkeListe.innerHTML = "";
 
+    //Find underkategorier til den valgte kategori
     const underKategorier = alleKategorier.filter(function (kategori) {
         return kategori.parent === parentId;
     });
 
+    // Brug underkategorier hvis de findes — ellers brug selve kategorien
     const kategorierDerSkalVises = underKategorier.length > 0 ? underKategorier
         : alleKategorier.filter(function (kategori) {
             return kategori.id === parentId;
         });
 
     kategorierDerSkalVises.forEach(function (kategori) {
+        // Filtrer posts der tilhører denne underkategori
         const produkter = allePosts.filter(function (post) {
             return post.categories.includes(kategori.id);
         });
 
+        // Spring over tomme kategorier — undtagen id 50 (alkoholfri øl)
         if (produkter.length === 0 && kategori.id !== 50) {
             return;
         }
@@ -244,6 +258,7 @@ function visDrikkevarer(parentId) {
 
         let produktHtml = "";
 
+        // Særlig håndtering af alkoholfri øl (id 50) uden produkter
         if (kategori.id === 50 && produkter.length === 0) {
             produktHtml = `
                 <article class="drikkeProdukt">
@@ -273,13 +288,15 @@ function visDrikkevarer(parentId) {
     }
 }
 
-
+// Bygger HTMLén for ét drikkeprodukt ud fra ACF-feltværdier
 function lavDrikkeProdukt(post) {
     const acf = post.acf;
 
+    // Henter navn og beskrivelse med fallback
     const navn = acf.navn_pa_drikkevare || acf.navn_pa_ret || post.title.rendered;
     const beskrivelse = acf.beskrivelse_af_drikkevare || acf.beskrivelse || "";
 
+    // Henter priser og størrelser for lille, mellem og stor
     const prisLille = acf.pris_lille || "";
     const prisMellem = acf.pris_mellem || "";
     const prisStor = acf.pris_stor || "";
@@ -290,6 +307,7 @@ function lavDrikkeProdukt(post) {
     const strStor = acf.storrelse_stor || "";
     const storrelse = acf.storrelse || "";
 
+    //Byg prislinjer — kun for størrelser der har en pris
     let linjer = "";
 
     if (prisLille !== "") {
@@ -323,7 +341,7 @@ function lavDrikkeProdukt(post) {
     `;
 }
 
-
+// Bygger én prislinje for en drikkevare med label(fx lille, mellem eller stor), størrelse (fx 33cl eller 50cl) og pris
 function lavDrikkeLinje(label, storrelse, pris) {
     let storrelseHtml = "";
 
@@ -336,6 +354,8 @@ function lavDrikkeLinje(label, storrelse, pris) {
         `;
     }
 
+
+
     return `
         <div class="drikkeLinje">
             <span>${label}</span>
@@ -347,7 +367,3 @@ function lavDrikkeLinje(label, storrelse, pris) {
         </div>
     `;
 }
-
-/* Menukort filter */
-
-/* ANTON start her */
