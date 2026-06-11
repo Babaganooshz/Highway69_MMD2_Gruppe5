@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Highway 69 er en restaurant der tager inspiration fra det amerikanske køkken. Vi tilbyder klassiske retter hele familien kan lide i hyggelige og afslappet omgivelser.">
+    <title>Highway 69 | Takeaway</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/app.js" defer></script>
+    <script src="./assets/js/takeaway.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+<body class="takeawayBody">
+    <header>
+        <nav class="nav-mobile">
+            <a href="./index.html"><img src="./assets/img/logo.png" alt="Highway 69 Logo" id="logoHighway-mobile"></a>
+
+            <div class="burgerMenuIcon">
+                <i class="fa-solid fa-bars" id="burgerMenuIcon"></i>
+            </div>
+            <div class="navDropdown" id="navDropdown">
+                <ul class="nav-list">
+                    <li class="links"><a href="./menukort.html">Menukort</a></li>
+                    <li class="links"><a href="./selskaber.html">Selskaber</a></li>
+                    <li class="links"><a href="./bookbord.html">Book bord</a></li>
+                    <li class="links"><a href="./takeaway.html" class="active">Takeaway</a></li>
+                    <li class="links"><a href="./omos.html">Om os</a></li>
+                    <li class="links"><a href="./job.html">Job</a></li>
+                    <li class="links"><a href="./kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="nav-desktop">
+            <a href="./index.html"><img src="./assets/img/logo.png" alt="Highway 69 Logo" id="logoHighway-desktop"></a>
+            <ul class="nav-list-desktop">
+                <li class="links"><a href="./menukort.html">Menukort</a></li>
+                <li class="links"><a href="./selskaber.html">Selskaber</a></li>
+                <li class="links"><a href="./bookbord.html">Book bord</a></li>
+                <li class="links"><a href="./takeaway.html" class="active">Takeaway</a></li>
+                <li class="links"><a href="./omos.html">Om os</a></li>
+                <li class="links"><a href="./job.html">Job</a></li>
+                <li class="links"><a href="./kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section-takeaway">
+        <h1>Takeaway</h1>
+    </section>
+    <!-- CATEGORY NAV -->
+    <nav class="cat-nav">
+        <button class="cat-btn active" data-category-id="35" data-label="Burgers">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/burgericon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="37" data-label="Steaks">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/steaksicon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="38" data-label="Spareribs">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/ribsicon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="36" data-label="Pizza">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/pizzaicon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="39" data-label="Lette Retter">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/letterettericon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="42" data-label="Tilbud">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/tilbudsicon2_1.svg"></span>
+        </button>
+
+        <button class="cat-btn" data-category-id="40" data-label="Børnemenuer">
+            <span class="icon" data-icon="assets/img/ikoner_takeaway/boernemenuicon2_1.svg"></span>
+        </button>
+
+        <!-- Mobile: cart button (skjult på desktop via CSS) -->
+        <button class="cat-cart-mobile" id="mobileCartBtn" onclick="openCart()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            <span id="mobileCartTotal">0,-</span>
+            <span class="cart-count" id="mobileCartCount">0</span>
+        </button>
+
+    </nav>
+    <main class="takeaway-main">
+        <div class="page">
+
+
+            <!-- MAIN CONTENT -->
+            <div class="main-layout">
+
+                <!-- LEFT: MENU -->
+                <div class="menu-col">
+
+                    <div class="section-header">
+                        <div class="section-heading">
+                            <h2 id="takeawayTitle">Burgere</h2>
+                        </div>
+
+                        <!--     <span class="section-sub">ALLE VORES STEAKS ER 250G</span> -->
+                    </div>
+
+                    <div id="menuList"></div>
+
+                </div>
+
+                <!-- RIGHT: DESKTOP CART (hidden on mobile via CSS) -->
+                <aside class="cart-sidebar" id="desktopCart">
+                    <div id="desktopCartLines">
+                        <p class="cart-empty">Kurven er tom</p>
+                    </div>
+                    <div class="cart-total-row">
+                        <span>TOTAL</span>
+                        <span id="desktopCartTotal">0,-</span>
+                    </div>
+                    <button class="checkout-btn">VÆLG AFHENTNING</button>
+                </aside>
+            </div>
+        </div>
+
+        <!-- MOBILE CART SHEET OVERLAY -->
+        <div class="overlay" id="overlay" onclick="closeCartIfBg(event)">
+            <div class="cart-sheet">
+                <div class="sheet-header">
+                    <span class="sheet-title">DIN KURV</span>
+                    <button class="sheet-close" onclick="closeCart()">&#x2715;</button>
+                </div>
+
+                <div id="mobileCartLines">
+                    <p class="cart-empty" style="color:#999">Kurven er tom</p>
+                </div>
+                <div class="cart-total-row sheet-total">
+                    <span>TOTAL</span>
+                    <span id="sheetCartTotal">0,-</span>
+                </div>
+
+                <button class="checkout-btn">VÆLG AFHENTNING</button>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- Åbningstider -->
+            <div class="footer-section">
+                <h3>Åbningstider</h3>
+                <p>Man - Tor: 16:00 - 21:00</p>
+                <p>Fre - Søn: 12:00 - 21:00</p>
+            </div>
+
+            <!-- Kontakt -->
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p><i class="fa-solid fa-envelope" id="mailIcon"></i><a
+                        href="mailto:Karimsalig@live.dk">Karimsalih@live.dk</a></p>
+                <p><i class="fa-solid fa-phone" id="phoneIcon"></i><a href="tel:+4526757866">+45 60 61 69 69</a></p>
+            </div>
+
+            <!-- Find os -->
+            <div class="footer-section">
+                <h3>Find os her:</h3>
+                <div class="map-icons-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2494.8777394038148!2d10.511452012891626!3d57.34397397360482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464f23791f34e95b%3A0x2f5ff58b0fe60514!2sHighway%2069!5e1!3m2!1sda!2sdk!4v1780762509409!5m2!1sda!2sdk"
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        class="map-iframe" title="Kort over Highway 69"></iframe>
+
+                    <div class="footer-icons">
+                        <a href="https://www.facebook.com/highway69saeby/?locale=da_DK"
+                            aria-label="Besøg Highway 69 på Facebook">
+                            <img src="./assets/img/Facebook_Logo_Secondary.png" alt="Facebook ikon" id="facebookIcon"
+                                loading="lazy" title="Facebook ikon">
+                        </a>
+                        <a href="https://www.tripadvisor.com/Restaurant_Review-g1486554-d3445259-Reviews-Restaurant_Highway_69-Saeby_Frederikshavn_North_Jutland_Jutland.html"
+                            aria-label="Læs anmeldelser om Highway 69">
+                            <img src="./assets/img/tripadvisor_ikon.svg" alt="Tripadvisor ikon" id="tripadvisorIcon"
+                                loading="lazy" title="Tripadvisor ikon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

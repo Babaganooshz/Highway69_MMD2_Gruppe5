@@ -226,8 +226,7 @@ function visDrikkevarer(parentId) {
         return kategori.parent === parentId;
     });
 
-    const kategorierDerSkalVises = underKategorier.length > 0
-        ? underKategorier
+    const kategorierDerSkalVises = underKategorier.length > 0 ? underKategorier
         : alleKategorier.filter(function (kategori) {
             return kategori.id === parentId;
         });
