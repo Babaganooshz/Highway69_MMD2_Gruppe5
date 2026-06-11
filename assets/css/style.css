@@ -23,6 +23,12 @@ html {
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonte/Roboto/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+    font-display: swap;
+}
+
 /* Begrænser indholdsbredden og centrerer main på siden */
 main {
     width: 100%;
@@ -479,6 +485,7 @@ h6 {
     padding-bottom: var(--smallGap);
 }
 
+
 /* Hvorfor vælge Highway */
 .choosing-section h2 {
     margin-bottom: 1rem;
@@ -685,16 +692,6 @@ h6 {
         padding-left: 0;
     }
 
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    #readMoreBtn {
-        display: none;
-    }
-
     .reviewer {
         margin-top: 0;
         padding-top: var(--smallGap);
@@ -721,22 +718,6 @@ h6 {
         background-size: cover;
     }
 
-    /* Får vist alt teksten - hvor mobil skjulte noget af det */
-    #moreText {
-        /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    .more-text {
-        display: inline !important;
-        opacity: 1 !important;
-    }
-
-    .read-more-btn {
-        display: none;
-    }
-
     .intro-forside {
         text-align: start;
     }
@@ -748,7 +729,12 @@ h6 {
         grid-template-columns: 1fr 1fr;
     }
 
-    #readMoreBtn {
+    .more-text {
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    .read-more-btn {
         display: none;
     }
 
