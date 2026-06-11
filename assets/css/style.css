@@ -710,10 +710,20 @@ h6 {
         background-size: cover;
     }
 
+    /* Får vist alt teksten - hvor mobil skjulte noget af det */
     #moreText {
         /* !important - Tvinger teksten til at være synlig på desktop, overskriver JavaScript's inline style */
         display: inline !important;
         opacity: 1 !important;
+    }
+
+    .more-text {
+        display: inline !important;
+        opacity: 1 !important;
+    }
+
+    .read-more-btn {
+        display: none;
     }
 
     .intro-forside {
