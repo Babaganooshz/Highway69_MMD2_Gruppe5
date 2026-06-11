@@ -2269,9 +2269,9 @@ h6 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.cat-cart-mobile svg {
-    width: 20px;
-    height: 20px;
+.cat-cart-mobile img {
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
 }
 

@@ -103,7 +103,7 @@ function getMenuItems(categoryId) {
 
 }
 
-/* QTY HELPERS */
+// Funktionen gemmer den valgte qty mængde som en tal værdi, der kan søges efter med et id.
 function setQty(id, value) {
     selectedQty[id] = parseInt(value, 10);
 }
@@ -130,6 +130,7 @@ function removeFromCart(id) {
 }
 
 /* CART RENDERING */
+// Opbygning af kurven med template strings.
 function buildCartLinesHTML() {
     const ids = Object.keys(cart);
     if (!ids.length) return '<p class="cart-empty">Kurven er tom</p>';
@@ -163,6 +164,7 @@ function getCount() {
     return Object.values(cart).reduce((sum, i) => sum + i.qty, 0);
 }
 
+// Bygger HTMLen for varerne i kurven og opdatere den for hvert item der tilføjes/fjernes.
 function renderCart() {
     const linesHTML = buildCartLinesHTML();
     const total = getTotal();
@@ -179,11 +181,12 @@ function renderCart() {
     document.getElementById('mobileCartCount').textContent = count;
 }
 
-/* ADD BUTTON FEEDBACK */
+// Giver brugeren en visuel feedback, når de tilføjer/ændre/fjerne noget til kurven.
 function flashConfirm(id) {
     const btn = document.getElementById(`add-${id}`);
     if (!btn) return;
 
+    // Ændre ikonet, når retten er tilføjet i kurvet
     btn.textContent = '✓';
     btn.classList.add('added');
 
@@ -193,15 +196,17 @@ function flashConfirm(id) {
     }, 700);
 }
 
-/* MOBILE CART OVERLAY */
+// Finder elementet med id overlay og giver den class = open
 function openCart() {
     document.getElementById('overlay').classList.add('open');
 }
 
+// Finder elementet med id overlay og fjerner class = open
 function closeCart() {
     document.getElementById('overlay').classList.remove('open');
 }
 
+// Lukker kurv popup'en når brugeren klikker på uden for kurven - det mørke overlay
 function closeCartIfBg(event) {
     if (event.target === document.getElementById('overlay')) closeCart();
 }
@@ -210,10 +215,11 @@ function closeCartIfBg(event) {
 function toggleItems() {
     const btn = document.getElementById('loadMore');
     btn.style.opacity = '0.4';
+    // Giver load knappen en animation, hvor den bliver lidt gennemsigtig
     setTimeout(() => { btn.style.opacity = ''; }, 300);
 }
 
-/* CATEGORY NAV — active tab switching */
+// Når kategori-knap klikkes, bliver class = active fjernet fra alle knapper og tilføjes kun til den der bliver klikket.
 document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -221,14 +227,14 @@ document.querySelectorAll('.cat-btn').forEach(btn => {
     });
 });
 
-/* CATEGORY ICONS — wire up mask-image from data-icon attribute */
+// Finder alle .icon elementer der har en data-icon attribut, og sætter deres mask-image til den SVG-fil der er angivet i attributten.
 document.querySelectorAll('.cat-btn .icon[data-icon]').forEach(el => {
     const path = el.getAttribute('data-icon');
     el.style.webkitMaskImage = `url(${path})`;
     el.style.maskImage = `url(${path})`;
 });
 
-// Ændre titel baseret på kategori valgt i menuen
+//Finder overskriften på siden (fx "Burgere"), og opdaterer den når en kategori-knap klikkes — til det navn der står i knappens data-label
 const takeawayTitle = document.querySelector('#takeawayTitle');
 document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
