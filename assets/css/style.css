@@ -55,7 +55,6 @@ main {
     --lightBlue: #DCE4F1;
     --pmWhite: #ffffff;
     --pmBlack: #000000;
-
     /* padding / margin / gap */
     --smallGap: 2rem;
     --largeGap: 4rem;
@@ -2167,3 +2166,576 @@ h6 {
 
 
 /* ANTON start her */
+/* HERO sektion - mobil */
+
+.hero-section-takeaway {
+    width: 100%;
+    height: 250px;
+    margin-top: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/american_steak.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section-takeaway h1 {
+    color: var(--pmWhite);
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* CATEGORY NAV */
+.takeaway-main {
+    font-family: "Roboto", sans-serif;
+    color: var(--pmWhite);
+
+}
+
+.takeawayBody {
+    background: var(--navy-deep);
+    color: var(--white);
+    line-height: 150%;
+    min-height: 100vh;
+}
+
+.cat-nav {
+    background: var(--darkBlue);
+    display: flex;
+    align-items: center;
+    gap: var(--largeGap);
+    padding: 0 40px;
+}
+
+.cat-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 12px 10px 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s;
+}
+
+.cat-btn svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.cat-btn.active {
+    color: var(--pmWhite);
+    border-bottom-color: var(--orange);
+}
+
+.cat-btn:hover {
+    color: var(--pmWhite);
+}
+
+
+.cat-btn .icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: var(--pmWhite);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+
+}
+
+
+/* Mobile kurv button — skjult på desktop */
+.cat-cart-mobile {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+    background: var(--orange);
+    border: none;
+    color: var(--pmWhite);
+    border-radius: 50px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cat-cart-mobile svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.cat-cart-mobile:hover {
+    background: var(--orange);
+}
+
+.cart-count {
+    background: var(--pmWhite);
+    color: var(--orange);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+
+/* MAIN LAYOUT */
+.main-layout {
+    display: flex;
+    align-items: flex-start;
+}
+
+.menu-col {
+    flex: 1;
+    min-width: 0;
+}
+
+/* SECTION HEADER */
+.section-header {
+    background: var(--pmWhite);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--smallGap) 0 0 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--pmBlack)
+}
+
+.section-name {
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--pmBlack)
+}
+
+.cloche-icon {
+    width: 26px;
+    height: 20px;
+    /*     color: var(--pmBlack) flex-shrink: 
+    0; */
+}
+
+.section-sub {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--pmBlack)
+        /*     text-transform: uppercase; */
+}
+
+
+/* MENU ITEMS */
+.menu-item {
+    background: var(--darkBlue);
+    margin: 1rem 0;
+    border-radius: 8px;
+    padding: 12px 14px 14px;
+    /*     border: 1px solid var(--border); */
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 4px;
+    align-items: start;
+}
+
+.item-name {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--pmWhite);
+}
+
+.item-price {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: var(--pmWhite);
+    white-space: nowrap;
+    padding-left: 8px;
+}
+
+.item-controls {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.item-desc {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 12px;
+    color: var(--pmWhite);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    line-height: 150%;
+    align-self: end;
+}
+
+/* Qty DROPDOWN */
+.qty-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.qty-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--darkBlue);
+    color: var(--pmWhite);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 5px 28px 5px 10px;
+    font-size: 14px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    min-width: 54px;
+    line-height: 1;
+}
+
+.qty-chevron {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--pmWhite);
+    font-size: 11px;
+    line-height: 1;
+    transition: opacity 0.1s;
+}
+
+.qty-select:focus+.qty-chevron {
+    opacity: 0;
+}
+
+/* TILFØJ (+) KNAP */
+.add-btn {
+    background: var(--darkBlue);
+    color: var(--pmWhite);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.add-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.add-btn.added {
+    background: #27ae60;
+    border-color: #27ae60;
+}
+
+/* LOAD-MORE PIL */
+.load-more {
+    text-align: center;
+    padding: 16px;
+    cursor: pointer;
+    color: var(--pmWhite);
+    transition: color 0.15s;
+}
+
+.load-more:hover {
+    color: var(--pmWhite);
+}
+
+.load-more svg {
+    width: 24px;
+    height: 14px;
+    display: inline-block;
+}
+
+/* DESKTOP CART SIDEBAR */
+.cart-sidebar {
+    width: 250px;
+    min-width: 250px;
+    background: var(--pmWhite);
+    color: #111;
+    padding: 0 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* ITEMS I KURV */
+.cart-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-x {
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+    transition: color 0.12s;
+}
+
+.cart-x:hover {
+    color: var(--orange);
+}
+
+.cart-line-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-line-name {
+    font-size: 11px;
+    font-weight: 700;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.cart-line-sides {
+    font-size: 10px;
+    color: #555;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    margin-top: 1px;
+}
+
+.cart-line-right {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.cart-line-price {
+    font-size: 12px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.cart-edit {
+    color: var(--orange);
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 1px;
+    line-height: 1;
+}
+
+/* TOTAL BELØB */
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "Bebas Neue", sans-serif;
+    padding: 12px 0 10px;
+    border-top: 2px solid #ddd;
+    margin-top: 4px;
+}
+
+/* VÆLG-AFHENTNING KNAP */
+.checkout-btn {
+    background: var(--orange);
+    color: var(--pmWhite);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: 2.5px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-transform: uppercase;
+}
+
+.checkout-btn:hover {
+    background: var(--orange);
+}
+
+.cart-empty {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    padding: 24px 0 8px;
+}
+
+/* MOBILE KURV OVERLAY + SHEET */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.overlay.open {
+    display: flex;
+}
+
+.cart-sheet {
+    background: var(--pmWhite);
+    color: #111;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 18px 18px 0 0;
+    padding: 20px 18px 28px;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.sheet-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-family: "Bebas Neue", sans-serif;
+    text-transform: uppercase;
+}
+
+.sheet-close {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    padding: 4px;
+    line-height: 1;
+}
+
+.sheet-total {
+    color: #111;
+    border-top-color: #ddd;
+}
+
+/* DESKTOP: VIS TOTAL-KURV, SKJUL MOBIL-KURV */
+@media (min-width: 768px) {
+    .cart-sidebar {
+        display: flex;
+        padding-right: 0;
+    }
+
+    .cat-cart-mobile {
+        display: none !important;
+    }
+
+    .overlay {
+        display: none !important;
+    }
+}
+
+/* MOBILE: SKJUL TOTAL-KURV, VIS MOBIL-KURV */
+@media (max-width: 720px) {
+    .cart-sidebar {
+        display: none;
+    }
+
+    .cat-cart-mobile {
+        display: flex;
+    }
+
+    .hero {
+        height: 180px;
+    }
+
+    .menu-item {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+    }
+
+    .item-price {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .item-desc {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .item-controls {
+        grid-column: 1 / 3;
+        grid-row: 3;
+        justify-content: flex-end;
+    }
+}
+
+/* DEKSTOP - takeaway*/
+@media (min-width: 768px) {
+    .hero-section-takeaway {
+        margin-top: 0;
+        height: 400px;
+    }
+
+}
+
+@media (min-width: 1100px) {
+    .hero-section-takeaway {
+        height: 500px;
+    }
+
+}

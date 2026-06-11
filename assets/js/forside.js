@@ -1,4 +1,4 @@
-/* Forside */
+//FORSIDE
 // Hero slideshow
 // Array med stier til alle hero-billeder der skal vises i slideshowet
 const heroImages = [
